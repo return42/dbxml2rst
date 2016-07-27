@@ -9,10 +9,10 @@ master_doc = 'index'
 templates_path = ['_templates']
 exclude_patterns = ['_build']
 
-project   = 'FSPath'
-copyright = fspath.__copyright__
-version   = fspath.__version__
-release   = fspath.__version__
+project   = 'dbxml2rst'
+copyright = dbxml2rst.__copyright__
+version   = dbxml2rst.__version__
+release   = dbxml2rst.__version__
 show_authors = True
 
 extensions = [

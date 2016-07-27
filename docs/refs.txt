@@ -1,0 +1,17 @@
+.. -*- coding: utf-8; mode: rst -*-
+..
+..  common hyperlink targets
+
+.. _`COPYING`: https://github.com/torvalds/linux/blob/master/COPYING
+.. _`reST`: http://www.sphinx-doc.org/en/stable/rest.html
+.. _`sphinx config`: http://www.sphinx-doc.org/en/stable/config.html
+.. _`sphinx-doc`: http://www.sphinx-doc.org/
+
+.. _`DocBook XSL Stylesheets`: http://docbook.sourceforge.net/release/xsl/current
+
+.. _`Haskell Tool Stack`: https://docs.haskellstack.org
+
+.. _`pandoc (github)`: https://github.com/jgm/pandoc
+.. _`pandoc development`: https://github.com/jgm/pandoc/wiki/Installing-the-development-version-of-pandoc
+
+.. _lxml: http://lxml.de/
