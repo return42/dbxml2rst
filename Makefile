@@ -1,5 +1,9 @@
 # -*- coding: utf-8; mode: makefile-gmake -*-
 
+# This is a python 3 project (no python 2 support!).
+PYTHON   = python3
+PIP      = pip3
+
 include utils/makefile.include
 include utils/makefile.python
 include utils/makefile.sphinx
