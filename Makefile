@@ -16,6 +16,7 @@ all: clean pylint pytest build docs
 PHONY += help
 help:
 	@echo  '  docs		- build documentation'
+	@echo  '  [un]install	- developer un-/install'
 	@echo  '  haskell-stack	- up-to-date install of haskell stack (needs sudo privileges)'
 	@echo  '  pandoc-build	- developer install of pandoc'
 	@echo  '  clean		- remove most generated files'
@@ -42,6 +43,12 @@ pandoc-build:
 	cd pandoc-build ; [ -d "zip-archive" ]     || git clone https://github.com/jgm/zip-archive
 	cd pandoc-build/pandoc ; git submodule update --init
 	cd pandoc-build/pandoc ; stack install --install-ghc --stack-yaml stack.full.yaml
+
+PHONY += install
+install: pyinstall
+
+PHONY += uninstall
+uninstall: pyuninstall
 
 PHONY += docs
 docs:  sphinx-doc

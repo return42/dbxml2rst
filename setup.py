@@ -2,7 +2,7 @@
 # -*- coding: utf-8; mode: python -*-
 
 from setuptools import setup, find_packages
-import fspath
+import dbxml2rst
 
 setup(
     name               = "dbxml2rst"
