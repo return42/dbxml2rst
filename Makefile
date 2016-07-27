@@ -16,6 +16,8 @@ all: clean pylint pytest build docs
 PHONY += help
 help:
 	@echo  '  docs		- build documentation'
+	@echo  '  haskell-stack	- up-to-date install of haskell stack (needs sudo privileges)'
+	@echo  '  pandoc-build	- developer install of pandoc'
 	@echo  '  clean		- remove most generated files'
 	@echo  '  rqmts		- info about build requirements'
 	@echo  ''
@@ -24,6 +26,22 @@ help:
 	@$(MAKE) -s -f utils/makefile.python python-help
 	@echo  ''
 	@$(MAKE) -s -f utils/makefile.sphinx docs-help
+
+PHONY += haskell-stack
+haskell-stack:
+	curl -sSL https://get.haskellstack.org/ | sh
+
+PHONY += pandoc-build
+pandoc-build:
+	mkdir -p pandoc-build
+	cd pandoc-build ; [ -d "pandoc-types" ]    || git clone https://github.com/jgm/pandoc-types
+	cd pandoc-build ; [ -d "texmath" ]         || git clone https://github.com/jgm/texmath
+	cd pandoc-build ; [ -d "pandoc-citeproc" ] || git clone https://github.com/jgm/pandoc-citeproc
+	cd pandoc-build ; [ -d "pandoc" ]          || git clone https://github.com/jgm/pandoc
+	cd pandoc-build ; [ -d "cmark-hs" ]        || git clone https://github.com/jgm/cmark-hs
+	cd pandoc-build ; [ -d "zip-archive" ]     || git clone https://github.com/jgm/zip-archive
+	cd pandoc-build/pandoc ; git submodule update --init
+	cd pandoc-build/pandoc ; stack install --install-ghc --stack-yaml stack.full.yaml
 
 PHONY += docs
 docs:  sphinx-doc
