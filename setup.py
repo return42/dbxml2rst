@@ -3,6 +3,8 @@
 
 from setuptools import setup, find_packages
 import dbxml2rst
+install_requires = [
+    'fspath' ]
 
 setup(
     name               = "dbxml2rst"
@@ -15,6 +17,7 @@ setup(
     , license          = dbxml2rst.__license__
     , keywords         = "DocBook XML reStructuredText reST"
     , packages         = find_packages(exclude=['docs', 'tests'])
+    , install_requires = install_requires
 
     # , entry_points={
     #     'console_scripts': [
