@@ -25,7 +25,8 @@ import json
 from fspath import which
 
 from .nodes import Table
-from .helper import rstHEADER, rstFOOTER, LOG
+from . import helper
+from .helper import LOG
 
 # ==============================================================================
 # constants
@@ -118,7 +119,7 @@ def fixPandocRST(src, dst):
     indent = ""
     with src.openTextFile() as src, dst.openTextFile("w") as dst:
 
-        dst.write(rstHEADER)
+        dst.write(helper.rstHEADER)
 
         for line in src:
             line = line.replace(u"⋆", "*")
@@ -153,7 +154,7 @@ def fixPandocRST(src, dst):
                     line = line.replace("\\", "")
             dst.write(line)
 
-        dst.write(rstFOOTER)
+        dst.write(helper.rstFOOTER)
 
 # ==============================================================================
 # init

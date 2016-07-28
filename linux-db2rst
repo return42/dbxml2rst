@@ -37,13 +37,13 @@ import media
 # ==============================================================================
 
 CACHE = FSPath(__file__).DIRNAME / "cache"
-LINUX_DOCBOOK_ROOT = "Documentation/DocBook"
-MIGRATION_FOLDER   = "books_migrated"
+LINUX_DOCBOOK_ROOT = None
+MIGRATION_FOLDER   = None
 
 def setup_globals(cliArgs):
     global LINUX_DOCBOOK_ROOT, MIGRATION_FOLDER  # pylint: disable=W0603
 
-    LINUX_DOCBOOK_ROOT = FSPath(cliArgs.linux_src_tree) / LINUX_DOCBOOK_ROOT
+    LINUX_DOCBOOK_ROOT = FSPath(cliArgs.linux_src_tree) / "Documentation/DocBook"
     MIGRATION_FOLDER   = FSPath(cliArgs.out_folder)
 
     media.LINUX_TV_CACHE     = CACHE / "linux_tv"
@@ -70,9 +70,9 @@ dbxml2rst.helper.rstHEADER=""".. -*- coding: utf-8; mode: rst -*-
 dbxml2rst.helper.rstFOOTER="""
 
 .. ------------------------------------------------------------------------------
-.. This file was automatically converted from DocBook-XML with the dbxml2rst
-.. library (https://github.com/return42/dbxml2rst). The origin XML comes
-.. from the Linux kernel, refer to e.g.:
+.. This file was automatically converted from DocBook-XML with the dbxml
+.. library (https://github.com/return42/sphkerneldoc). The origin XML comes
+.. from the linux kernel, refer to:
 ..
 .. * https://github.com/torvalds/linux/tree/master/Documentation/DocBook
 .. ------------------------------------------------------------------------------
@@ -100,6 +100,20 @@ def main():
         , default = FSPath("out")
         , help = "path to place reST output" )
 
+    # db2rst
+    # ------
+
+    cmd = cli.addCMDParser(db2rst)
+
+    cmd.add_argument(
+        "linux_src_tree"
+        , type = FSPath
+        , help = "path to linux kernel source tree" )
+
+    cmd.add_argument(
+        "filename", nargs="+"
+        , help="DocBook-XML template file (e.g 'kernel-hacking.tmpl')")
+
     # media2rst
     # ---------
 
@@ -113,19 +127,14 @@ def main():
         , type = FSPath
         , help = "path to linux kernel source tree" )
 
-    # db2rst
-    # ------
+    # all
+    # ---------
 
-    cmd = cli.addCMDParser(db2rst)
-
+    cmd = cli.addCMDParser(all2rst)
     cmd.add_argument(
         "linux_src_tree"
         , type = FSPath
         , help = "path to linux kernel source tree" )
-
-    cmd.add_argument(
-        "filename", nargs="+"
-        , help="DocBook-XML file to convert to reST  (e.g 'kernel-hacking.xml')")
 
     # fiddle
     # ------
@@ -137,12 +146,26 @@ def main():
 
     cli()
 
+# ==============================================================================
+def all2rst(cliArgs):                                    # pylint: disable=W0613
+# ==============================================================================
+
+    u"""Convert all Linux DocBook documentation to reST."""
+
+    setup_globals(cliArgs)
+    for fname in LINUX_DOCBOOK_ROOT.glob("*.tmpl"):
+        origFile = fname.BASENAME
+        if origFile not in ["media_api.tmpl", "media-entities.tmpl", "media-indices.tmpl"]:
+            _db2rst(cliArgs, origFile.BASENAME)
+    cliArgs.noinit = False
+    media2rst(cliArgs)
+
 
 # ==============================================================================
 def db2rst(cliArgs):                                    # pylint: disable=W0613
 # ==============================================================================
 
-    u"""convert DocBook documentation to reST."""
+    u"""Convert DocBook documentation to reST."""
 
     setup_globals(cliArgs)
     for fname in cliArgs.filename:
@@ -165,7 +188,7 @@ def _db2rst(cliArgs, origFile):                          # pylint: disable=W0613
 
     folder = CACHE / origFile.SKIPSUFFIX
 
-    LOG.msg("==== convert DocBook %s to reST ====" % (origFile))
+    LOG.msg("==== convert DocBook-XML %s to reST ====" % (origFile))
 
     if folder.EXISTS:
         folder.rmtree()
@@ -241,6 +264,7 @@ def _db2rst(cliArgs, origFile):                          # pylint: disable=W0613
                 LOG.msg("install file-folder %s" % dstFolder)
                 resource.copytree(dstFolder)
 
+
 # ==============================================================================
 def media2rst(cliArgs):                                  # pylint: disable=W0613
 # ==============================================================================
@@ -254,6 +278,8 @@ def media2rst(cliArgs):                                  # pylint: disable=W0613
     steps are applied on it.  """
 
     setup_globals(cliArgs)
+
+    LOG.msg("==== convert DocBook-XML media (linux-tv) to reST ====")
 
     if not cliArgs.noinit:
         media.initMedia()
@@ -308,7 +334,6 @@ def fiddle(cliArgs):                                     # pylint: disable=W0613
     convert_xml2rst(media.LINUX_TV_CACHE, inFile)
 
 
-
 # ==============================================================================
 def convert_xml2rst(folder, inFile):
 # ==============================================================================
@@ -343,6 +368,7 @@ def convert_xml2rst(folder, inFile):
     inFile, outFile = outFile, outFile.suffix(".rst")
     LOG.info("fix pandoc's rst: %s" % outFile)
     fixPandocRST(folder / inFile, folder / outFile)
+
 
 # ==============================================================================
 # run ...

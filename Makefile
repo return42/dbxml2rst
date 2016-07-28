@@ -55,9 +55,17 @@ PHONY += docs
 docs:  sphinx-doc
 	$(call cmd,sphinx,html,docs,docs)
 
-PHONY += clean
-clean: pyclean docs-clean
+
+quiet_cmd_clean = CLEAN     $@
+      cmd_clean = \
+	rm -rf cache ;\
+
+PHONY += clean clean-cache
+clean: pyclean docs-clean clean-cache
 	$(call cmd,common_clean)
+
+clean-cache:
+	$(call cmd,clean)
 
 PHONY += help-rqmts
 rqmts: msg-sphinx-doc msg-pylint-exe msg-pip-exe
