@@ -9,14 +9,15 @@ DocBook-XML to reST
     :undoc-members:
     :show-inheritance:
 
-* documentation: http://return42.github.io/dbxml2rst
-* reposetory:    `github return42/fspath <https://github.com/return42/dbxml2rst>`_
-* Author e-mail: *markus.heiser*\ *@*\ *darmarIT.de*
+Chapters
+========
 
-Installing
-==========
+.. toctree::
+   :maxdepth: 1
 
-FIXME
+   install
+   remarks
+
 
 Source Code Documentation
 =========================

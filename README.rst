@@ -14,4 +14,4 @@ Collection of *hackish* tools to migrate DocBook-XML to reST.
 Installing
 ==========
 
-FIXME
+Read: http://return42.github.io/dbxml2rst/install.html

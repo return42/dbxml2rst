@@ -275,21 +275,21 @@ class CLI(object):
 
         .. code-block:: bash
 
-            function _py_argcomplete() {
-
-                local IFS=$(echo -e '\v')
-                COMPREPLY=( $(IFS="$IFS" \
-                    COMP_LINE="$COMP_LINE" \
-                    COMP_POINT="$COMP_POINT" \
-                    _ARGCOMPLETE_COMP_WORDBREAKS="$COMP_WORDBREAKS" \
-                    _ARGCOMPLETE=1 \
-                    "$1" 8>&1 9>&2 1>/dev/null) )
-                if [[ $? != 0 ]]; then
-                    unset COMPREPLY
-                fi
-            }
-
+           function _py_argcomplete() {
+                   local IFS=$(echo -e '\\v')
+                   COMPREPLY=( $(IFS="$IFS" \\
+                           COMP_LINE="$COMP_LINE" \\
+                           COMP_POINT="$COMP_POINT" \\
+                           _ARGCOMPLETE_COMP_WORDBREAKS="$COMP_WORDBREAKS" \\
+                           _ARGCOMPLETE=1 \\
+                           "$1" 8>&1 9>&2 1>/dev/null) )
+                   if [[ $? != 0 ]]; then
+                           unset COMPREPLY
+                   fi
+           }
            complete -o nospace -o default -F _py_argcomplete myCommandName
+
+        ..
         """
 
         # only complete when called from _py_argcomplete()

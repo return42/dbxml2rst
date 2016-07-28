@@ -3,9 +3,9 @@
 
 .. _xref_dbxml2rst_install:
 
-=======
-Install
-=======
+============================
+Install dbxml2rst and Pandoc
+============================
 
 This is a python 3 project (no python 2 support). First install python3 on your
 OS, e.g. on Debian/Ubuntu::
@@ -17,14 +17,15 @@ all make targets, you need also to install pylint3::
 
   sudo apt-get install pylint3
 
-Next step is to clone the repository from github and install::
+Next step is to clone the repository from github and install it::
 
   git clone https://github.com/return42/dbxml2rst.git
   cd dbxml2rst
   make install
 
-The dbxml2rst library requires an up-to-date pandoc installation. I recommend to
-use pandoc version>=1.17.1 which is available e.g. on Ubuntu 16.04.::
+This installs dbxml2rst and the `pandoc-filters`_. The dbxml2rst library
+requires an up-to-date pandoc installation. I recommend to use pandoc
+version>=1.17.1 which is available e.g. on Ubuntu 16.04.::
 
   $ sudo apt-get install pandoc
 

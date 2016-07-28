@@ -422,7 +422,7 @@ class XMLTag(metaclass=XMLTagType):
 
     @classmethod
     def getFormatedTitle(cls, node, from_tag="title"):
-        u"""title as one line, prefixed with :py:attribute:`rstBlock`"""
+        u"""title as one line, prefixed with py:attribute:`rstBlock`"""
         title = ""
         title_node = node.find(from_tag)
         if title_node is not None:

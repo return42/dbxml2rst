@@ -17,6 +17,9 @@ to reST migration, it don't attempt to be a *converter* for a daily usage.
 
 :copyright:  Copyright (C) 2016 Markus Heiser
 :license:    GPL Version 2, June 1991 see linux/COPYING for details.
+:docs:       http://return42.github.io/dbxml2rst
+:reposetory: `github return42/fspath <https://github.com/return42/dbxml2rst>`_
+:e-mail:     *markus.heiser*\ *@*\ *darmarIT.de*
 
 """
 

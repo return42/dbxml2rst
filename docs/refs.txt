@@ -13,5 +13,6 @@
 
 .. _`pandoc (github)`: https://github.com/jgm/pandoc
 .. _`pandoc development`: https://github.com/jgm/pandoc/wiki/Installing-the-development-version-of-pandoc
+.. _`pandoc-filters`: https://pypi.python.org/pypi/pandocfilters
 
 .. _lxml: http://lxml.de/
