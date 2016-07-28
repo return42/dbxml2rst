@@ -18,14 +18,7 @@ setup(
     , keywords         = "DocBook XML reStructuredText reST"
     , packages         = find_packages(exclude=['docs', 'tests'])
     , install_requires = install_requires
-
-    # , entry_points={
-    #     'console_scripts': [
-    #         'kernel-doc = linuxdoc.kernel_doc:main'
-    #         , 'kernel-autodoc = linuxdoc.autodoc:main'
-    #         , 'kernel-lintdoc = linuxdoc.lint:main'
-    #         , ]
-    #     , }
+    , scripts          = ["linux-db2rst"]
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     , classifiers = [
