@@ -1,20 +1,15 @@
 dbxml2rst package
 =================
 
-Submodules
-----------
+.. automodule:: dbxml2rst
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 .. toctree::
+   :maxdepth: 1
 
    dbxml2rst.helper
    dbxml2rst.hooks
    dbxml2rst.nodes
    dbxml2rst.pandoc
-
-Module contents
----------------
-
-.. automodule:: dbxml2rst
-    :members:
-    :undoc-members:
-    :show-inheritance:
