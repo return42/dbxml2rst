@@ -1,14 +1,13 @@
 # -*- coding: utf-8; mode: python -*-
 u"""
-Normally XML tools are used to convert DocBook XML, e.g. XSL Style-sheets
-to convert DocBook XML into various formats (examples:
-http://docbook.sourceforge.net/release/xsl/current).
-
-I haven't found any XSL Template to convert DocBook to reST, and I'am not
-interested in developing one. Thats why I compiled these small ``dbxml2rst``
-toolbox, which uses existing tools and *hacked* a bit around them.  The
-``dbxml2rst`` uses the pandoc converter and implements some XML-filters, where
-pandoc fails, e.g. cross references in a multi-part DocBook document.
+Normally XML tools are used to convert DocBook XML, e.g. XSL Style-sheets to
+convert DocBook XML into various formats (examples:
+http://docbook.sourceforge.net/release/xsl/current). I haven't found any XSL
+Template to convert DocBook to reST, and I'am not interested in developing
+one. Thats why I compiled these small ``dbxml2rst`` toolbox, which uses existing
+tools and *hacked* a bit around them.  The ``dbxml2rst`` uses the pandoc
+converter and implements some XML-filters, where pandoc fails, e.g. cross
+references in a multi-part DocBook document.
 
 The migration of DocBook-XML is a working process and a task which is mostly
 done by developers, not end users. This in mind, the ``dbxml2rst`` tools are not
@@ -19,7 +18,7 @@ to reST migration, it don't attempt to be a *converter* for a daily usage.
 :e-mail:     *markus.heiser*\ *@*\ *darmarIT.de*
 :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 :docs:       http://return42.github.io/dbxml2rst
-:repository: `github return42/fspath <https://github.com/return42/dbxml2rst>`_
+:repository: `github return42/dbxml2rst <https://github.com/return42/dbxml2rst>`_
 
 """
 
