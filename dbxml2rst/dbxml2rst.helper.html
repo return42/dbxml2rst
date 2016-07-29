@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.helper module &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
+        <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
+        <link rel="next" title="dbxml2rst.hooks module" href="dbxml2rst.hooks.html"/>
+        <link rel="prev" title="dbxml2rst package" href="dbxml2rst.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dbxml2rst.html">dbxml2rst package</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dbxml2rst.helper module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dbxml2rst-helpers">dbxml2rst.helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.hooks.html">dbxml2rst.hooks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.nodes.html">dbxml2rst.nodes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.pandoc.html">dbxml2rst.pandoc module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
+      
+    <li>dbxml2rst.helper module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/dbxml2rst/dbxml2rst.helper.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-dbxml2rst.helper">
+<span id="dbxml2rst-helper-module"></span><h1>dbxml2rst.helper module<a class="headerlink" href="#module-dbxml2rst.helper" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dbxml2rst-helpers">
+<h2>dbxml2rst.helpers<a class="headerlink" href="#dbxml2rst-helpers" title="Permalink to this headline">¶</a></h2>
+<p>Some helpers, used by the dbxml2rst library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="dbxml2rst.helper.CLI">
+<em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">CLI</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#CLI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.CLI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A comfortable commandline.</p>
+<dl class="method">
+<dt id="dbxml2rst.helper.CLI.addCMDParser">
+<code class="descname">addCMDParser</code><span class="sig-paren">(</span><em>func</em>, <em>cmdName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#CLI.addCMDParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.CLI.addCMDParser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.CLI.autocomplete">
+<code class="descname">autocomplete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#CLI.autocomplete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.CLI.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>bash completion</p>
+<p>To get in use of bash completion, install <code class="docutils literal"><span class="pre">argcomplete</span></code>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install argcomplete
+</pre></div>
+</div>
+<p>and add the following to your ~/.bashrc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">function</span> _py_argcomplete<span class="o">()</span> <span class="o">{</span>
+        <span class="nb">local</span> <span class="nv">IFS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -e <span class="s1">&#39;\v&#39;</span><span class="k">)</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nv">IFS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$IFS</span><span class="s2">&quot;</span> <span class="se">\</span>
+                <span class="nv">COMP_LINE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$COMP_LINE</span><span class="s2">&quot;</span> <span class="se">\</span>
+                <span class="nv">COMP_POINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$COMP_POINT</span><span class="s2">&quot;</span> <span class="se">\</span>
+                <span class="nv">_ARGCOMPLETE_COMP_WORDBREAKS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$COMP_WORDBREAKS</span><span class="s2">&quot;</span> <span class="se">\</span>
+                <span class="nv">_ARGCOMPLETE</span><span class="o">=</span><span class="m">1</span> <span class="se">\</span>
+                <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> 8&gt;<span class="p">&amp;</span><span class="m">1</span> 9&gt;<span class="p">&amp;</span><span class="m">2</span> 1&gt;/dev/null<span class="k">)</span> <span class="o">)</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+                <span class="nb">unset</span> COMPREPLY
+        <span class="k">fi</span>
+<span class="o">}</span>
+<span class="nb">complete</span> -o nospace -o default -F _py_argcomplete myCommandName
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.helper.Container">
+<em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">Container</code><a class="reference internal" href="../_modules/dbxml2rst/helper.html#Container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.Container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>container class</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.helper.EntityContainer">
+<em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">EntityContainer</code><span class="sig-paren">(</span><em>fname</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#EntityContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.EntityContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.helper.PContainer" title="dbxml2rst.helper.PContainer"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.helper.PContainer</span></code></a></p>
+<p>Variant of PContainer used by the dbxml2rst for xml-entities.</p>
+<dl class="method">
+<dt id="dbxml2rst.helper.EntityContainer.addNew">
+<code class="descname">addNew</code><span class="sig-paren">(</span><em>attr</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#EntityContainer.addNew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.EntityContainer.addNew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.helper.PContainer">
+<em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">PContainer</code><span class="sig-paren">(</span><em>fname</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#PContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.PContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.helper.Container" title="dbxml2rst.helper.Container"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.helper.Container</span></code></a></p>
+<p>Persistent container class.</p>
+<p>The persistence is a json dump in the file given by constructor&#8217;s argument
+<code class="docutils literal"><span class="pre">fname</span></code>. It serialize only properties (objects) which are covered by the
+<code class="xref py py-mod docutils literal"><span class="pre">json.dump</span></code>.</p>
+<dl class="method">
+<dt id="dbxml2rst.helper.PContainer.updFromFile">
+<code class="descname">updFromFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#PContainer.updFromFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.PContainer.updFromFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.PContainer.writeToFile">
+<code class="descname">writeToFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#PContainer.writeToFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.PContainer.writeToFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.helper.SimpleLog">
+<em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">SimpleLog</code><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="dbxml2rst.helper.SimpleLog.LOG_FORMAT">
+<code class="descname">LOG_FORMAT</code><em class="property"> = '%(logclass)s: %(message)s\n'</em><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.LOG_FORMAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.SimpleLog.debug">
+<code class="descname">debug</code><span class="sig-paren">(</span><em>message</em>, <em>**replace</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.SimpleLog.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>message</em>, <em>**replace</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.SimpleLog.info">
+<code class="descname">info</code><span class="sig-paren">(</span><em>message</em>, <em>**replace</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.SimpleLog.msg">
+<code class="descname">msg</code><span class="sig-paren">(</span><em>message</em>, <em>**replace</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.msg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.helper.SimpleLog.warn">
+<code class="descname">warn</code><span class="sig-paren">(</span><em>message</em>, <em>**replace</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#SimpleLog.warn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.warn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dbxml2rst.hooks.html" class="btn btn-neutral float-right" title="dbxml2rst.hooks module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dbxml2rst.html" class="btn btn-neutral" title="dbxml2rst package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

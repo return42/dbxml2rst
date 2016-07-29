@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst package &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
+        <link rel="next" title="dbxml2rst.helper module" href="dbxml2rst.helper.html"/>
+        <link rel="prev" title="Remarks on Pandoc &amp; DocBook" href="../remarks.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dbxml2rst package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.helper.html">dbxml2rst.helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.hooks.html">dbxml2rst.hooks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.nodes.html">dbxml2rst.nodes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.pandoc.html">dbxml2rst.pandoc module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>dbxml2rst package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/dbxml2rst/dbxml2rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-dbxml2rst">
+<span id="dbxml2rst-package"></span><h1>dbxml2rst package<a class="headerlink" href="#module-dbxml2rst" title="Permalink to this headline">¶</a></h1>
+<p>Normally XML tools are used to convert DocBook XML, e.g. XSL Style-sheets
+to convert DocBook XML into various formats (examples:
+<a class="reference external" href="http://docbook.sourceforge.net/release/xsl/current">http://docbook.sourceforge.net/release/xsl/current</a>).</p>
+<p>I haven&#8217;t found any XSL Template to convert DocBook to reST, and I&#8217;am not
+interested in developing one. Thats why I compiled these small <code class="docutils literal"><span class="pre">dbxml2rst</span></code>
+toolbox, which uses existing tools and <em>hacked</em> a bit around them.  The
+<code class="docutils literal"><span class="pre">dbxml2rst</span></code> uses the pandoc converter and implements some XML-filters, where
+pandoc fails, e.g. cross references in a multi-part DocBook document.</p>
+<p>The migration of DocBook-XML is a working process and a task which is mostly
+done by developers, not end users. This in mind, the <code class="docutils literal"><span class="pre">dbxml2rst</span></code> tools are not
+<em>ready to go</em> for every one.  The <code class="docutils literal"><span class="pre">dbxml2rst</span></code> toolbox is useful for DocBook
+to reST migration, it don&#8217;t attempt to be a <em>converter</em> for a daily usage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016 Markus Heiser</td>
+</tr>
+<tr class="field-even field"><th class="field-name">e-mail:</th><td class="field-body"><em>markus.heiser</em><em>&#64;</em><em>darmarIT.de</em></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">license:</th><td class="field-body">GPL Version 2, June 1991 see Linux/COPYING for details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">docs:</th><td class="field-body"><a class="reference external" href="http://return42.github.io/dbxml2rst">http://return42.github.io/dbxml2rst</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">repository:</th><td class="field-body"><a class="reference external" href="https://github.com/return42/dbxml2rst">github return42/fspath</a></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dbxml2rst.helper.html">dbxml2rst.helper module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbxml2rst.hooks.html">dbxml2rst.hooks module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbxml2rst.nodes.html">dbxml2rst.nodes module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbxml2rst.pandoc.html">dbxml2rst.pandoc module</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dbxml2rst.helper.html" class="btn btn-neutral float-right" title="dbxml2rst.helper module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../remarks.html" class="btn btn-neutral" title="Remarks on Pandoc &amp; DocBook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.helper &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dbxml2rst/dbxml2rst.html">dbxml2rst package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>dbxml2rst.helper</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for dbxml2rst.helper</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8; mode: python -*-</span>
+<span class="c1"># pylint: disable=C0103</span>
+
+<span class="sd">u&quot;&quot;&quot;</span>
+<span class="sd">    dbxml2rst.helpers</span>
+<span class="sd">    ~~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">    Some helpers, used by the dbxml2rst library</span>
+
+<span class="sd">    :copyright:  Copyright (C) 2016  Markus Heiser</span>
+<span class="sd">    :license:    GPL V3.0, see LICENSE for details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># imports</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="kn">from</span> <span class="nn">fspath</span> <span class="k">import</span> <span class="n">FSPath</span><span class="p">,</span> <span class="n">OS_ENV</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># constants</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="n">mainFOOTER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">rstHEADER</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;.. -*- coding: utf-8; mode: rst -*-</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">rstFOOTER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="Container"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.Container">[docs]</a><span class="k">class</span> <span class="nc">Container</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;container class&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">__dict__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># Logging stuff</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="n">STREAM</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span>
+    <span class="c1"># pipes used by the application &amp; logger</span>
+    <span class="n">appl_out</span>   <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span>
+    <span class="p">,</span> <span class="n">log_out</span>  <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stderr__</span>
+    <span class="p">,</span> <span class="p">)</span>
+
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">DEBUG</span>   <span class="o">=</span> <span class="kc">False</span>
+<span class="n">QUIET</span>   <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="SimpleLog"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog">[docs]</a><span class="k">class</span> <span class="nc">SimpleLog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">LOG_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(logclass)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="SimpleLog.error"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">replace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="p">,</span> <span class="n">logclass</span> <span class="o">=</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">))</span>
+        <span class="n">STREAM</span><span class="o">.</span><span class="n">log_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOG_FORMAT</span> <span class="o">%</span> <span class="n">replace</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SimpleLog.warn"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog.warn">[docs]</a>    <span class="k">def</span> <span class="nf">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">QUIET</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">replace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="p">,</span> <span class="n">logclass</span> <span class="o">=</span> <span class="s2">&quot;WARN&quot;</span><span class="p">))</span>
+        <span class="n">STREAM</span><span class="o">.</span><span class="n">log_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOG_FORMAT</span> <span class="o">%</span> <span class="n">replace</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SimpleLog.info"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">QUIET</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">VERBOSE</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">replace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="p">,</span> <span class="n">logclass</span> <span class="o">=</span> <span class="s2">&quot;INFO&quot;</span><span class="p">))</span>
+        <span class="n">STREAM</span><span class="o">.</span><span class="n">log_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOG_FORMAT</span> <span class="o">%</span> <span class="n">replace</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SimpleLog.debug"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">replace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="p">,</span> <span class="n">logclass</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">))</span>
+        <span class="n">STREAM</span><span class="o">.</span><span class="n">log_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOG_FORMAT</span> <span class="o">%</span> <span class="n">replace</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SimpleLog.msg"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.SimpleLog.msg">[docs]</a>    <span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">QUIET</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">STREAM</span><span class="o">.</span><span class="n">appl_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">SimpleLog</span><span class="p">()</span>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="PContainer"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.PContainer">[docs]</a><span class="k">class</span> <span class="nc">PContainer</span><span class="p">(</span><span class="n">Container</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;Persistent container class.</span>
+
+<span class="sd">    The persistence is a json dump in the file given by constructor&#39;s argument</span>
+<span class="sd">    ``fname``. It serialize only properties (objects) which are covered by the</span>
+<span class="sd">    :py:mod:`json.dump`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">__dict__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;pFile&quot;</span><span class="p">,</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updFromFile</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PContainer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PContainer.updFromFile"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.PContainer.updFromFile">[docs]</a>    <span class="k">def</span> <span class="nf">updFromFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pFile</span><span class="o">.</span><span class="n">EXISTS</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">pFile</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jsonFile</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">jsonFile</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="PContainer.writeToFile"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.PContainer.writeToFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeToFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tmpFile</span> <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pFile</span> <span class="o">+</span> <span class="s2">&quot;tmp&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tmpFile</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jsonFile</span><span class="p">:</span>
+            <span class="n">jsonFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+        <span class="n">tmpFile</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pFile</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc_info</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writeToFile</span><span class="p">()</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="EntityContainer"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.EntityContainer">[docs]</a><span class="k">class</span> <span class="nc">EntityContainer</span><span class="p">(</span><span class="n">PContainer</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;Variant of PContainer used by the dbxml2rst for xml-entities.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EntityContainer.addNew"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.EntityContainer.addNew">[docs]</a>    <span class="k">def</span> <span class="nf">addNew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">unset</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+        <span class="n">exists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">unset</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">LOG</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;two entity names with identical value </span><span class="si">%s</span><span class="s2"> &lt;--&gt; </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">exists</span> <span class="o">!=</span> <span class="n">unset</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">exists</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">LOG</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;double entity entry </span><span class="si">%r</span><span class="s2"> --&gt;  </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">exists</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;name collision </span><span class="si">%r</span><span class="s2"> --&gt;  old: </span><span class="si">%r</span><span class="s2"> &lt;--&gt; new: </span><span class="si">%r</span><span class="s2">&quot;</span>
+                               <span class="o">%</span> <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span></div></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="CLI"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.CLI">[docs]</a><span class="k">class</span> <span class="nc">CLI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;A comfortable commandline.&quot;&quot;&quot;</span>
+
+    <span class="n">_OUT</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span>
+    <span class="n">_ERR</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stderr__</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;formatter_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cmdFunc&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cliSubParsers</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;epilog&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epilog&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;description&quot;</span>
+                <span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;epilog&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;epilog&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span>        <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cliSubParsers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cliSubParsers</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_argument</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s1">&#39;--debug&#39;</span>
+            <span class="p">,</span> <span class="n">action</span>  <span class="o">=</span> <span class="s1">&#39;store_true&#39;</span>
+            <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s1">&#39;run in debug mode&#39;</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s1">&#39;--verbose&#39;</span>
+            <span class="p">,</span> <span class="n">action</span>  <span class="o">=</span> <span class="s1">&#39;store_true&#39;</span>
+            <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s1">&#39;run in verbose mode&#39;</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s1">&#39;--quiet&#39;</span>
+            <span class="p">,</span> <span class="n">action</span>  <span class="o">=</span> <span class="s1">&#39;store_true&#39;</span>
+            <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s1">&#39;run in quiet mode&#39;</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="CLI.addCMDParser"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.CLI.addCMDParser">[docs]</a>    <span class="k">def</span> <span class="nf">addCMDParser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">cmdName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cliSubParsers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;this command-line has no sub-commands!&quot;</span><span class="p">)</span>
+
+        <span class="n">subCmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cliSubParsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+            <span class="n">cmdName</span> <span class="ow">or</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span>
+            <span class="p">,</span> <span class="n">epilog</span>          <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">__doc__</span>
+            <span class="p">,</span> <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+            <span class="p">,</span> <span class="n">help</span>            <span class="o">=</span> <span class="p">((</span><span class="n">func</span><span class="o">.</span><span class="n">__doc__</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span> <span class="s2">&quot;sorry, no help available&quot;</span> <span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">subCmd</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">subCmd</span></div>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">_exitCode</span>  <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">_exception</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">_retVal</span>    <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">autocomplete</span><span class="p">()</span>
+
+        <span class="n">cmd_args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">cmd_args</span><span class="o">.</span><span class="n">CLI</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="n">OS_ENV</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmd_args</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># pylint: disable=W0603</span>
+        <span class="k">global</span> <span class="n">DEBUG</span><span class="p">,</span> <span class="n">VERBOSE</span><span class="p">,</span> <span class="n">QUIET</span>
+        <span class="n">DEBUG</span>   <span class="o">=</span> <span class="n">cmd_args</span><span class="o">.</span><span class="n">debug</span>
+        <span class="n">VERBOSE</span> <span class="o">=</span> <span class="n">cmd_args</span><span class="o">.</span><span class="n">verbose</span>
+        <span class="n">QUIET</span>   <span class="o">=</span> <span class="n">cmd_args</span><span class="o">.</span><span class="n">quiet</span>
+
+        <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">u&quot;argparse --&gt; </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cmd_args</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">_retVal</span> <span class="o">=</span> <span class="n">cmd_args</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">cmd_args</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_retVal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdFunc</span><span class="p">(</span><span class="n">cmd_args</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_exitCode</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_retVal</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span> <span class="c1"># pylint: disable=W0703</span>
+                <span class="k">pass</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span> <span class="c1"># pylint: disable=W0703</span>
+            <span class="k">if</span> <span class="n">cmd_args</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="n">_exitCode</span>  <span class="o">=</span> <span class="mi">42</span>
+            <span class="n">_exception</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">u&quot;FATAL ERROR: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">_exception</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_exitCode</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CLI.autocomplete"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.helper.html#dbxml2rst.helper.CLI.autocomplete">[docs]</a>    <span class="k">def</span> <span class="nf">autocomplete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">u&quot;&quot;&quot;bash completion</span>
+
+<span class="sd">        To get in use of bash completion, install ``argcomplete``:</span>
+
+<span class="sd">        .. code-block:: bash</span>
+
+<span class="sd">           pip install argcomplete</span>
+
+<span class="sd">        and add the following to your ~/.bashrc:</span>
+
+<span class="sd">        .. code-block:: bash</span>
+
+<span class="sd">           function _py_argcomplete() {</span>
+<span class="sd">                   local IFS=$(echo -e &#39;\\v&#39;)</span>
+<span class="sd">                   COMPREPLY=( $(IFS=&quot;$IFS&quot; \\</span>
+<span class="sd">                           COMP_LINE=&quot;$COMP_LINE&quot; \\</span>
+<span class="sd">                           COMP_POINT=&quot;$COMP_POINT&quot; \\</span>
+<span class="sd">                           _ARGCOMPLETE_COMP_WORDBREAKS=&quot;$COMP_WORDBREAKS&quot; \\</span>
+<span class="sd">                           _ARGCOMPLETE=1 \\</span>
+<span class="sd">                           &quot;$1&quot; 8&gt;&amp;1 9&gt;&amp;2 1&gt;/dev/null) )</span>
+<span class="sd">                   if [[ $? != 0 ]]; then</span>
+<span class="sd">                           unset COMPREPLY</span>
+<span class="sd">                   fi</span>
+<span class="sd">           }</span>
+<span class="sd">           complete -o nospace -o default -F _py_argcomplete myCommandName</span>
+
+<span class="sd">        ..</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># only complete when called from _py_argcomplete()</span>
+        <span class="k">if</span> <span class="s1">&#39;_ARGCOMPLETE&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">argcomplete</span>
+        <span class="k">except</span><span class="p">:</span>   <span class="c1"># pylint: disable=W0702</span>
+            <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;TAB-completion, python-argcomplete not installed.&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">argcomplete</span><span class="o">.</span><span class="n">autocomplete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">)</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

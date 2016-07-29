@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.hooks module &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
+        <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
+        <link rel="next" title="dbxml2rst.nodes module" href="dbxml2rst.nodes.html"/>
+        <link rel="prev" title="dbxml2rst.helper module" href="dbxml2rst.helper.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dbxml2rst.html">dbxml2rst package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.helper.html">dbxml2rst.helper module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dbxml2rst.hooks module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dbxml2rst-hooks">dbxml2rst.hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.nodes.html">dbxml2rst.nodes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.pandoc.html">dbxml2rst.pandoc module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
+      
+    <li>dbxml2rst.hooks module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/dbxml2rst/dbxml2rst.hooks.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-dbxml2rst.hooks">
+<span id="dbxml2rst-hooks-module"></span><h1>dbxml2rst.hooks module<a class="headerlink" href="#module-dbxml2rst.hooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dbxml2rst-hooks">
+<h2>dbxml2rst.hooks<a class="headerlink" href="#dbxml2rst-hooks" title="Permalink to this headline">¶</a></h2>
+<p>Hooks used by the dbxml2rst library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_chunk_by_tag">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_chunk_by_tag</code><span class="sig-paren">(</span><em>*chunkPathes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_chunk_by_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_chunk_by_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk DocBook XML document into XML fragments.</p>
+<p>Requirement for the division is an ID (e.g. <code class="docutils literal"><span class="pre">&lt;chapter</span> <span class="pre">id=&quot;intro&quot;</span> <span class="pre">...</span></code>)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_copy_file_resource">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_copy_file_resource</code><span class="sig-paren">(</span><em>srcFolder</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_copy_file_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_copy_file_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_drop_usless_informaltables">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_drop_usless_informaltables</code><span class="sig-paren">(</span><em>node</em>, <em>_rstPrefix</em>, <em>_parseData</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_drop_usless_informaltables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_drop_usless_informaltables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook to convert useless informatables to (e.g) paragraphs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_fix_broken_tables">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_fix_broken_tables</code><span class="sig-paren">(</span><em>fname_list=None</em>, <em>id_list=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_fix_broken_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_fix_broken_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>This hooks add missing colspecs to the <em>broken</em> table.</p>
+<p>A complete colspec definition is needed by pandoc, otherwise the build of
+the ASCII-art table fails within pandoc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_flatten_tables">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_flatten_tables</code><span class="sig-paren">(</span><em>table_id_list='all'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_flatten_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_flatten_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook to convert tables into a double-stage list.</p>
+<p>This hook converts a tables (by id or &#8220;all&#8221;) into the <code class="docutils literal"><span class="pre">flat-table</span></code>
+directive</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_html2db_table">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_html2db_table</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em>, <em>parseData</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_html2db_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_html2db_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>This hook converts a HTML table to a DocBook table</p>
+<p>This is done by simply change <code class="docutils literal"><span class="pre">&lt;tr&gt;</span></code> and <code class="docutils literal"><span class="pre">&lt;td&gt;</span></code> (<code class="docutils literal"><span class="pre">&lt;th&gt;</span></code>) tags to
+<code class="docutils literal"><span class="pre">&lt;row&gt;</span></code> and <code class="docutils literal"><span class="pre">&lt;entry&gt;</span></code> tags</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.hooks.hook_replaceTag">
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_replaceTag</code><span class="sig-paren">(</span><em>id2TagMap</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_replaceTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dbxml2rst.nodes.html" class="btn btn-neutral float-right" title="dbxml2rst.nodes module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dbxml2rst.helper.html" class="btn btn-neutral" title="dbxml2rst.helper module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

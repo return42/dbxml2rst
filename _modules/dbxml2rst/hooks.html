@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.hooks &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dbxml2rst/dbxml2rst.html">dbxml2rst package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>dbxml2rst.hooks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for dbxml2rst.hooks</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8; mode: python -*-</span>
+<span class="c1"># pylint: disable=C0103,R0912,R0914,R0915</span>
+
+<span class="sd">u&quot;&quot;&quot;</span>
+<span class="sd">    dbxml2rst.hooks</span>
+<span class="sd">    ~~~~~~~~~~~~~~~</span>
+
+<span class="sd">    Hooks used by the dbxml2rst library</span>
+
+<span class="sd">    :copyright:  Copyright (C) 2016  Markus Heiser</span>
+<span class="sd">    :license:    GPL V3.0, see LICENSE for details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># imports</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="kn">from</span> <span class="nn">fspath</span> <span class="k">import</span> <span class="n">FSPath</span>
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="k">import</span> <span class="n">XMLTag</span><span class="p">,</span> <span class="n">Table</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># constants</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="n">RESOUCE_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_files&quot;</span>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_copy_file_resource"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_copy_file_resource">[docs]</a><span class="k">def</span> <span class="nf">hook_copy_file_resource</span><span class="p">(</span><span class="n">srcFolder</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="n">srcFolder</span> <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">srcFolder</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hookFunc</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span>  <span class="c1"># pylint: disable=W0613</span>
+
+        <span class="c1"># run this hook only on the root node</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+        <span class="c1"># are there any filerefs in?</span>
+        <span class="n">filerefList</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//*[@fileref]&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filerefList</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+        <span class="n">thisFile</span>   <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">parseData</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">bookBase</span>   <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">parseData</span><span class="o">.</span><span class="n">folder</span><span class="p">)</span>
+
+        <span class="n">bookOffset</span> <span class="o">=</span> <span class="n">thisFile</span><span class="o">.</span><span class="n">DIRNAME</span>
+        <span class="n">resFolder</span>  <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">RESOUCE_FORMAT</span> <span class="o">%</span> <span class="n">thisFile</span><span class="o">.</span><span class="n">BASENAME</span><span class="o">.</span><span class="n">SKIPSUFFIX</span><span class="p">)</span>
+        <span class="n">dstFolder</span>  <span class="o">=</span> <span class="n">bookBase</span> <span class="o">/</span> <span class="n">bookOffset</span> <span class="o">/</span> <span class="n">resFolder</span>
+
+        <span class="n">dstFolder</span><span class="o">.</span><span class="n">makedirs</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">filerefList</span><span class="p">:</span>
+            <span class="n">fileref</span> <span class="o">=</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fileref&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">BASENAME</span>
+            <span class="n">src</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">srcFolder</span><span class="o">.</span><span class="n">reMatchFind</span><span class="p">(</span><span class="n">fileref</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">src</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;fileref: </span><span class="si">%s</span><span class="s2"> could not found in </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fileref</span><span class="p">,</span> <span class="n">srcFolder</span><span class="p">))</span>
+            <span class="n">src</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">dstFolder</span><span class="p">)</span>
+            <span class="n">tag</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;fileref&quot;</span><span class="p">,</span> <span class="n">resFolder</span> <span class="o">/</span> <span class="n">fileref</span> <span class="p">)</span>
+            <span class="c1">#SDK.CONSOLE()</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">return</span> <span class="n">hookFunc</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_chunk_by_tag"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_chunk_by_tag">[docs]</a><span class="k">def</span> <span class="nf">hook_chunk_by_tag</span><span class="p">(</span><span class="o">*</span><span class="n">chunkPathes</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;</span>
+<span class="sd">    Chunk DocBook XML document into XML fragments.</span>
+
+<span class="sd">    Requirement for the division is an ID (e.g. ``&lt;chapter id=&quot;intro&quot; ...``)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">chunkPathes</span> <span class="o">=</span> <span class="n">chunkPathes</span>
+
+    <span class="k">def</span> <span class="nf">hookFunc</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span> <span class="c1"># pylint: disable=W0613</span>
+
+        <span class="c1"># run this hook only on the root node</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+        <span class="n">realNode</span> <span class="o">=</span> <span class="n">node</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;dummy&quot;</span>
+            <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="ow">and</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chunkNode&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">realNode</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">chunkPathes</span><span class="p">:</span>
+            <span class="c1"># pylint: disable=R0204</span>
+            <span class="n">chunkNodes</span> <span class="o">=</span> <span class="n">realNode</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tag</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">chunkNodes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chunkNode&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">ID</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">ID</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># generate unique ID by counting preceding siblings on any</span>
+                    <span class="c1"># hierarchy level.</span>
+                    <span class="n">_p</span> <span class="o">=</span> <span class="n">elem</span>
+                    <span class="n">ID</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">while</span> <span class="n">_p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">_p</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;dummy&quot;</span><span class="p">:</span>
+                            <span class="k">break</span>
+                        <span class="n">ID</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_p</span><span class="o">.</span><span class="n">itersiblings</span><span class="p">(</span><span class="n">preceding</span><span class="o">=</span><span class="kc">True</span><span class="p">))))</span>
+                        <span class="n">_p</span> <span class="o">=</span> <span class="n">_p</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+                    <span class="n">ID</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">%03d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ID</span><span class="p">])</span>
+                    <span class="n">ID</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">parseData</span><span class="o">.</span><span class="n">fname</span><span class="o">.</span><span class="n">BASENAME</span><span class="o">.</span><span class="n">SKIPSUFFIX</span><span class="p">,</span> <span class="n">ID</span><span class="p">)</span>
+                <span class="n">ext_entity</span> <span class="o">=</span> <span class="n">parseData</span><span class="o">.</span><span class="n">fname</span><span class="o">.</span><span class="n">DIRNAME</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.xml&quot;</span> <span class="o">%</span> <span class="n">ID</span><span class="p">)</span>
+                <span class="n">XMLTag</span><span class="o">.</span><span class="n">chunkNode</span><span class="p">(</span>
+                    <span class="n">elem</span>
+                    <span class="p">,</span> <span class="n">parseData</span><span class="o">.</span><span class="n">folder</span>
+                    <span class="p">,</span> <span class="n">ext_entity</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="n">parseData</span><span class="o">.</span><span class="n">fname</span><span class="o">.</span><span class="n">SUFFIX</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunkNodes</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">return</span> <span class="n">hookFunc</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_html2db_table"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_html2db_table">[docs]</a><span class="k">def</span> <span class="nf">hook_html2db_table</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span> <span class="c1"># pylint: disable=W0613</span>
+<span class="c1"># ==============================================================================</span>
+    <span class="sd">u&quot;&quot;&quot;This hook converts a HTML table to a DocBook table</span>
+
+<span class="sd">    This is done by simply change ``&lt;tr&gt;`` and ``&lt;td&gt;`` (``&lt;th&gt;``) tags to</span>
+<span class="sd">    ``&lt;row&gt;`` and ``&lt;entry&gt;`` tags</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># run this hook only on the root node</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">node</span>
+
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//tr&quot;</span><span class="p">):</span>
+        <span class="n">newNode</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">copyNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="n">moveID</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">XMLTag</span><span class="o">.</span><span class="n">replaceNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">newNode</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//th&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//td&quot;</span><span class="p">):</span>
+        <span class="n">newNode</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">copyNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="s2">&quot;entry&quot;</span><span class="p">,</span> <span class="n">moveID</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">XMLTag</span><span class="o">.</span><span class="n">replaceNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">newNode</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">node</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_fix_broken_tables"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_fix_broken_tables">[docs]</a><span class="k">def</span> <span class="nf">hook_fix_broken_tables</span><span class="p">(</span><span class="n">fname_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;This hooks add missing colspecs to the *broken* table.</span>
+
+<span class="sd">    A complete colspec definition is needed by pandoc, otherwise the build of</span>
+<span class="sd">    the ASCII-art table fails within pandoc.&quot;&quot;&quot;</span>
+    <span class="n">fname_list</span> <span class="o">=</span> <span class="n">fname_list</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">id_list</span>    <span class="o">=</span> <span class="n">id_list</span>    <span class="ow">or</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">hookFunc</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=W0613, R0912</span>
+
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">parseData</span><span class="o">.</span><span class="n">folder</span><span class="o">.</span><span class="n">BASENAME</span> <span class="o">/</span> <span class="n">parseData</span><span class="o">.</span><span class="n">fname</span><span class="o">.</span><span class="n">SKIPSUFFIX</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">id_list</span>
+            <span class="ow">and</span> <span class="n">fname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fname_list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+        <span class="n">table</span>  <span class="o">=</span> <span class="n">node</span>
+        <span class="n">tgroup</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;tgroup&quot;</span><span class="p">)</span>
+        <span class="n">cols</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tgroup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cols&quot;</span><span class="p">))</span>
+        <span class="n">thead</span>  <span class="o">=</span> <span class="n">tgroup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;thead&quot;</span><span class="p">)</span>
+        <span class="n">tbody</span>  <span class="o">=</span> <span class="n">tgroup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;tbody&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">thead</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># is there any row in the header with more entries as defined cols?</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">thead</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">):</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cols</span><span class="p">:</span>
+                    <span class="n">cols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+                    <span class="n">tgroup</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;cols&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">cols</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tbody</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">):</span>
+            <span class="c1"># is there any row in the body with more entries as defined cols?</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cols</span><span class="p">:</span>
+                <span class="n">cols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+                <span class="n">tgroup</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;cols&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">cols</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">thead</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># add missing entries to header rows</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">thead</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">):</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">_x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)):</span>
+                        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">))</span>
+
+        <span class="c1"># add missing entries to body rows</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tbody</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">):</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)):</span>
+                    <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;entry&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">return</span> <span class="n">hookFunc</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_replaceTag"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_replaceTag">[docs]</a><span class="k">def</span> <span class="nf">hook_replaceTag</span><span class="p">(</span><span class="n">id2TagMap</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="n">id2TagMap</span> <span class="o">=</span> <span class="n">id2TagMap</span>
+
+    <span class="k">def</span> <span class="nf">hookFunc</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span>  <span class="c1"># pylint: disable=W0613</span>
+        <span class="c1"># run this hook only on the root node</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+        <span class="k">for</span> <span class="n">ID</span><span class="p">,</span> <span class="n">newTag</span> <span class="ow">in</span> <span class="n">id2TagMap</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//*[@id=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">ID</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">elem</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">newNode</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">copyNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">newTag</span><span class="p">,</span> <span class="n">moveID</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">XMLTag</span><span class="o">.</span><span class="n">replaceNode</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">newNode</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">return</span> <span class="n">hookFunc</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_drop_usless_informaltables"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_drop_usless_informaltables">[docs]</a><span class="k">def</span> <span class="nf">hook_drop_usless_informaltables</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">_rstPrefix</span><span class="p">,</span> <span class="n">_parseData</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;Hook to convert useless informatables to (e.g) paragraphs&quot;&quot;&quot;</span>
+    <span class="c1"># run this hook only on the root node</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">node</span>
+
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//informaltable&quot;</span><span class="p">):</span>
+        <span class="n">tbody</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//tbody&quot;</span><span class="p">)</span>
+        <span class="n">max_cols</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tbody</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//row&quot;</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//entry&quot;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">max_cols</span><span class="p">:</span>
+                <span class="n">max_cols</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="n">section</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;section&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_cols</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">tbody</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//entry&quot;</span><span class="p">):</span>
+                <span class="n">para</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">copyNode</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="s2">&quot;para&quot;</span><span class="p">,</span> <span class="n">moveID</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">section</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+            <span class="n">XMLTag</span><span class="o">.</span><span class="n">replaceNode</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">section</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="hook_flatten_tables"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.hooks.html#dbxml2rst.hooks.hook_flatten_tables">[docs]</a><span class="k">def</span> <span class="nf">hook_flatten_tables</span><span class="p">(</span><span class="n">table_id_list</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;Hook to convert tables into a double-stage list.</span>
+
+<span class="sd">    This hook converts a tables (by id or &quot;all&quot;) into the ``flat-table``</span>
+<span class="sd">    directive&quot;&quot;&quot;</span>
+
+    <span class="n">table_id_list</span> <span class="o">=</span> <span class="n">table_id_list</span>
+
+    <span class="k">def</span> <span class="nf">hookFunc</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">rstPrefix</span><span class="p">,</span> <span class="n">parseData</span><span class="p">):</span>   <span class="c1"># pylint: disable=W0613</span>
+        <span class="c1"># run this hook only on the root node</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//table&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">node</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//informaltable&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">table_id_list</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span>
+                <span class="ow">or</span> <span class="n">table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">table_id_list</span><span class="p">):</span>
+
+                <span class="c1"># seek column widths and col-spans from DocBook is the hell,</span>
+                <span class="c1"># particularly there are &lt;entrytbl&gt; which left up to the outer</span>
+                <span class="c1"># table and broken colspec definitions which has not been</span>
+                <span class="c1"># rejected by the docbook toolchains. These colspecs must be</span>
+                <span class="c1"># *repaired* in any matter.</span>
+
+                <span class="n">colspec</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">colspecByNumber</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="k">for</span> <span class="n">colspec_count</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//colspec&quot;</span><span class="p">)):</span>
+                    <span class="n">colnum</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;colnum&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">colnum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">colnum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">colnum</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span> <span class="c1"># pylint: disable=W0703</span>
+                            <span class="k">pass</span>
+                    <span class="k">if</span> <span class="n">colnum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">colnum</span> <span class="o">=</span> <span class="n">colspec_count</span>
+                    <span class="n">colname</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;colname&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">colname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">colname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;align&quot;</span><span class="p">)</span>
+                    <span class="n">colwidth</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;colwidth&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">colwidth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">colwidth</span> <span class="o">=</span> <span class="n">colwidth</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                        <span class="c1"># some colspec definition use the &quot;&amp;#x22C6;&quot; entity</span>
+                        <span class="n">colwidth</span> <span class="o">=</span> <span class="n">colwidth</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">u&quot;⋆&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">colwidth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">colwidth</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=W0703</span>
+                            <span class="n">colwidth</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">colspec</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">colnum</span><span class="p">,</span> <span class="n">align</span><span class="p">,</span> <span class="n">colwidth</span> <span class="p">)</span>
+                    <span class="n">colspecByNumber</span><span class="p">[</span><span class="n">colnum</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">colname</span><span class="p">,</span> <span class="n">align</span><span class="p">,</span> <span class="n">colwidth</span><span class="p">)</span>
+
+                <span class="n">spanspec</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//spanspec&quot;</span><span class="p">):</span>
+                    <span class="n">spanname</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spanname&quot;</span><span class="p">)</span>
+                    <span class="n">namest</span>   <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;namest&quot;</span><span class="p">)</span>
+                    <span class="n">nameend</span>  <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;nameend&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">spanname</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">namest</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">nameend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">colspec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">namest</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">end</span>   <span class="o">=</span> <span class="n">colspec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nameend</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="n">spanspec</span><span class="p">[</span><span class="n">spanname</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+
+                <span class="c1"># convert table to double-stage list</span>
+
+                <span class="n">max_cols</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">row_count</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">flatTable</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;itemizedlist&quot;</span><span class="p">)</span>
+
+                <span class="c1"># eat all rows, include the rows from entrytbl</span>
+
+                <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//row&quot;</span><span class="p">):</span>
+                    <span class="n">row_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">flatRow</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;listitem&quot;</span><span class="p">)</span>
+                    <span class="n">row_id</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">row_id</span><span class="p">:</span>
+                        <span class="n">flatRow</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;.. _`</span><span class="si">%s</span><span class="s2">`:&quot;</span> <span class="o">%</span> <span class="n">row_id</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">flatRow</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;.. table row&quot;</span>
+                        <span class="c1">#flatRow.text = &quot;.. row %s&quot; % row_count</span>
+                    <span class="n">flatTable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flatRow</span><span class="p">)</span>
+                    <span class="n">colList</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;itemizedlist&quot;</span><span class="p">)</span>
+                    <span class="n">flatRow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colList</span><span class="p">)</span>
+                    <span class="n">col_count</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//entry&quot;</span><span class="p">):</span>
+                        <span class="n">col_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="n">cspan</span> <span class="o">=</span> <span class="n">spanspec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spanname&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">cspan</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="c1"># the colspan attribut comes from tables which has</span>
+                            <span class="c1"># been converted from html (see hook_html2db_table)</span>
+                            <span class="n">cspan</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;colspan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+                        <span class="n">newCol</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;listitem&quot;</span><span class="p">)</span>
+
+                        <span class="c1"># a ID in a cell needs some extras</span>
+                        <span class="n">cell_id</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">cell_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="k">del</span> <span class="n">entry</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+                            <span class="n">para_id</span><span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">makeelement</span><span class="p">(</span><span class="s2">&quot;para&quot;</span><span class="p">)</span>
+                            <span class="n">para_id</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;.. _`</span><span class="si">%s</span><span class="s2">`:</span><span class="se">\n\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cell_id</span><span class="p">)</span>
+                            <span class="n">newCol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para_id</span><span class="p">)</span>
+
+                        <span class="c1"># move content of entry to a para and insert</span>
+                        <span class="c1"># rat-spanning markup</span>
+                        <span class="n">para</span>   <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">copyNode</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="s2">&quot;para&quot;</span><span class="p">,</span> <span class="n">moveID</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">cspan</span><span class="p">:</span>
+                            <span class="n">para</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;:cspan:`</span><span class="si">%s</span><span class="s2">` &quot;</span> <span class="o">%</span> <span class="n">cspan</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">para</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                            <span class="n">col_count</span> <span class="o">+=</span> <span class="n">cspan</span>
+                        <span class="n">morerows</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;morerows&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">morerows</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="c1"># the rowspan attribut comes from tables which has</span>
+                            <span class="c1"># been converted from html (see hook_html2db_table)</span>
+                            <span class="n">morerows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rowspan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">morerows</span><span class="p">:</span>
+                            <span class="n">para</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;:rspan:`</span><span class="si">%s</span><span class="s2">` &quot;</span> <span class="o">%</span> <span class="n">morerows</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">para</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                        <span class="n">newCol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                        <span class="n">colList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newCol</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">col_count</span> <span class="o">&gt;</span> <span class="n">max_cols</span><span class="p">:</span>
+                        <span class="n">max_cols</span> <span class="o">=</span> <span class="n">col_count</span>
+
+                <span class="c1"># estimate colwidths</span>
+
+                <span class="n">widths</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_cols</span><span class="p">):</span>
+                    <span class="n">colname</span><span class="p">,</span> <span class="n">align</span><span class="p">,</span> <span class="n">colwidth</span> <span class="o">=</span> <span class="n">colspecByNumber</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">colwidth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">colwidth</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">colwidth</span><span class="p">))</span>
+
+                <span class="c1"># use widths only when they are meaningful</span>
+                <span class="n">useWidth</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="n">widths</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">useWidth</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colspec</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_cols</span><span class="p">:</span>
+                    <span class="c1"># The colspec definition has more entries than columns</span>
+                    <span class="c1"># existing in the table definition. This indicates, that the</span>
+                    <span class="c1"># colspec definition is buggy. I don&#39;t use width definitions</span>
+                    <span class="c1"># from buggy colspecs</span>
+                    <span class="n">useWidth</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="c1"># insert prefix</span>
+
+                <span class="n">ctx</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">getContext</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+                <span class="n">ctx</span><span class="o">.</span><span class="n">header_rows</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//thead/row&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[])</span>
+                <span class="n">ctx</span><span class="o">.</span><span class="n">stub_columns</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rowheader&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;firstcol&quot;</span> <span class="k">else</span> <span class="mi">0</span>
+                <span class="n">ctx</span><span class="o">.</span><span class="n">widths</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">widths</span><span class="p">)</span>
+
+                <span class="n">preText</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ctx</span><span class="o">.</span><span class="n">ID</span> <span class="k">else</span> <span class="n">Table</span><span class="o">.</span><span class="n">rstAnchor</span>
+                <span class="n">preText</span> <span class="o">+=</span>  <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">.. flat-table::</span><span class="si">%(title)s</span><span class="s2">&quot;</span>
+                <span class="n">preText</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    :header-rows:  </span><span class="si">%(header_rows)s</span><span class="s2">&quot;</span>
+                <span class="n">preText</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    :stub-columns: </span><span class="si">%(stub_columns)s</span><span class="s2">&quot;</span>
+                <span class="k">if</span> <span class="n">useWidth</span><span class="p">:</span>
+                    <span class="n">preText</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    :widths:       </span><span class="si">%(widths)s</span><span class="s2">&quot;</span>
+                <span class="n">preText</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span>
+                <span class="n">preText</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="si">%(tableStartMark)s</span><span class="s2">&quot;</span>
+                <span class="n">new</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">getInjBlockTag</span><span class="p">()</span>
+                <span class="n">new</span><span class="o">.</span><span class="n">text</span> <span class="o">+=</span> <span class="n">preText</span> <span class="o">%</span> <span class="n">ctx</span>
+                <span class="n">table</span><span class="o">.</span><span class="n">addprevious</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+
+                <span class="c1"># insert postfix</span>
+
+                <span class="n">rstPostText</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="si">%(tableEndMark)s</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">new</span> <span class="o">=</span> <span class="n">XMLTag</span><span class="o">.</span><span class="n">getInjBlockTag</span><span class="p">()</span>
+                <span class="n">new</span><span class="o">.</span><span class="n">text</span> <span class="o">+=</span> <span class="n">rstPostText</span> <span class="o">%</span> <span class="n">ctx</span>
+                <span class="n">table</span><span class="o">.</span><span class="n">addnext</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+
+                <span class="c1"># replace table</span>
+
+                <span class="n">XMLTag</span><span class="o">.</span><span class="n">replaceNode</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">flatTable</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">return</span> <span class="n">hookFunc</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

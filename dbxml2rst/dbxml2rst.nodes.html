@@ -1,0 +1,1805 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.nodes module &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
+        <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
+        <link rel="next" title="dbxml2rst.pandoc module" href="dbxml2rst.pandoc.html"/>
+        <link rel="prev" title="dbxml2rst.hooks module" href="dbxml2rst.hooks.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dbxml2rst.html">dbxml2rst package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.helper.html">dbxml2rst.helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.hooks.html">dbxml2rst.hooks module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dbxml2rst.nodes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dbxml2rst-nodes">dbxml2rst.nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dbxml2rst.pandoc.html">dbxml2rst.pandoc module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
+      
+    <li>dbxml2rst.nodes module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/dbxml2rst/dbxml2rst.nodes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-dbxml2rst.nodes">
+<span id="dbxml2rst-nodes-module"></span><h1>dbxml2rst.nodes module<a class="headerlink" href="#module-dbxml2rst.nodes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dbxml2rst-nodes">
+<h2>dbxml2rst.nodes<a class="headerlink" href="#dbxml2rst-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Library with XML-filters to convert DocBook-XML to reST</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="dbxml2rst.nodes.Appendix">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Appendix</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Appendix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Appendix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Appendix.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Appendix.tag">
+<code class="descname">tag</code><em class="property"> = 'appendix'</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Authorgroup">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Authorgroup</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Authorgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Authorgroup.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Authorgroup.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Authorgroup.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Authorgroup.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Authorgroup.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Authorgroup.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Authorgroup.tag">
+<code class="descname">tag</code><em class="property"> = 'authorgroup'</em><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Biblioentry">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Biblioentry</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Biblioentry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Biblioentry.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Biblioentry.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Biblioentry.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Biblioentry.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Biblioentry.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Biblioentry.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Biblioentry.tag">
+<code class="descname">tag</code><em class="property"> = 'biblioentry'</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Bibliography">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Bibliography</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Bibliography"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Bibliography" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Bibliography.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Bibliography.tag">
+<code class="descname">tag</code><em class="property"> = 'bibliography'</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Bookinfo">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Bookinfo</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Bookinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Bookinfo.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Bookinfo.tag">
+<code class="descname">tag</code><em class="property"> = 'bookinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Chapter">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Chapter</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Chapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Chapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.Chapter.rstTitle">
+<em class="property">classmethod </em><code class="descname">rstTitle</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Chapter.rstTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Chapter.rstTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Chapter.rstTitleMarkup">
+<code class="descname">rstTitleMarkup</code><em class="property"> = '*'</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Chapter.tag">
+<code class="descname">tag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Code">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Code</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Code.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Code.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Code.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Code.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.Code.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Code.tag">
+<code class="descname">tag</code><em class="property"> = 'code'</em><a class="headerlink" href="#dbxml2rst.nodes.Code.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Computeroutput">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Computeroutput</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Computeroutput"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Computeroutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Code" title="dbxml2rst.nodes.Code"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Code</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Computeroutput.tag">
+<code class="descname">tag</code><em class="property"> = 'computeroutput'</em><a class="headerlink" href="#dbxml2rst.nodes.Computeroutput.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Constant">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Constant</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Constant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Constant.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Constant.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Constant.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Constant.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.Constant.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Constant.tag">
+<code class="descname">tag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Constant.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Copyright">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Copyright</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Copyright"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Copyright" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Copyright.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Copyright.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Copyright.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Copyright.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Copyright.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Copyright.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Copyright.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Copyright.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Copyright.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Copyright.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Copyright.tag">
+<code class="descname">tag</code><em class="property"> = 'copyright'</em><a class="headerlink" href="#dbxml2rst.nodes.Copyright.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Entrytbl">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Entrytbl</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Entrytbl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Entrytbl.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Entrytbl.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Entrytbl.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Entrytbl.tag">
+<code class="descname">tag</code><em class="property"> = 'entrytbl'</em><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Figure">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Figure</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Figure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Figure.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Figure.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Figure.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Figure.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Figure.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Figure.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Figure.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Figure.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Figure.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Figure.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '\n.. figure::  %(glob)s\n    :alt:    %(alt)s\n    :align:  %(align)s\n\n%(title)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Figure.tag">
+<code class="descname">tag</code><em class="property"> = 'figure'</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Filename">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Filename</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Filename.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Filename.tag">
+<code class="descname">tag</code><em class="property"> = 'filename'</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Funcprototype">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Funcprototype</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Funcprototype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Funcprototype.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Funcprototype.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Funcprototype.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Funcprototype.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Funcprototype.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Funcprototype.tag">
+<code class="descname">tag</code><em class="property"> = 'funcprototype'</em><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Funcsynopsisinfo">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Funcsynopsisinfo</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Funcsynopsisinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Funcsynopsisinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Programlisting" title="dbxml2rst.nodes.Programlisting"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Programlisting</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Funcsynopsisinfo.tag">
+<code class="descname">tag</code><em class="property"> = 'funcsynopsisinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Funcsynopsisinfo.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Function">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Function</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Function.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Function.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Function.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Function.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Function.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Function.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Function.tag">
+<code class="descname">tag</code><em class="property"> = 'function'</em><a class="headerlink" href="#dbxml2rst.nodes.Function.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Informalexample">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Informalexample</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Informalexample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Informalexample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informalexample.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informalexample.tag">
+<code class="descname">tag</code><em class="property"> = 'informalexample'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Informalfigure">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Informalfigure</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Informalfigure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Informalfigure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Figure" title="dbxml2rst.nodes.Figure"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Figure</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informalfigure.tag">
+<code class="descname">tag</code><em class="property"> = 'informalfigure'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalfigure.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Informaltable">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Informaltable</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Informaltable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Informaltable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Table" title="dbxml2rst.nodes.Table"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Table</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Informaltable.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Informaltable.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informaltable.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Informaltable.dropUselessTable">
+<code class="descname">dropUselessTable</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Informaltable.dropUselessTable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.dropUselessTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informaltable.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Informaltable.tag">
+<code class="descname">tag</code><em class="property"> = 'informaltable'</em><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Legalnotice">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Legalnotice</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Legalnotice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Legalnotice.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Legalnotice.tag">
+<code class="descname">tag</code><em class="property"> = 'legalnotice'</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Link">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Link</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Link"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LinkTag" title="dbxml2rst.nodes.LinkTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LinkTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Link.tag">
+<code class="descname">tag</code><em class="property"> = 'link'</em><a class="headerlink" href="#dbxml2rst.nodes.Link.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.LinkTag">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">LinkTag</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LinkTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LinkTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.LinkTag.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LinkTag.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.LinkTag.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LinkTag.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LinkTag.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = ':ref:`%(text)s &lt;%(linkend)s&gt;`'</em><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LinkTag.tag">
+<code class="descname">tag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.LiteralBlock">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">LiteralBlock</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LiteralBlock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.LiteralBlock.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LiteralBlock.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.language">
+<code class="descname">language</code><em class="property"> = 'guess'</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.LiteralBlock.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#LiteralBlock.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '\n::\n\n%(literal)s\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.LiteralBlock.tag">
+<code class="descname">tag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Literallayout">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Literallayout</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Literallayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Literallayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LiteralBlock" title="dbxml2rst.nodes.LiteralBlock"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LiteralBlock</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Literallayout.tag">
+<code class="descname">tag</code><em class="property"> = 'literallayout'</em><a class="headerlink" href="#dbxml2rst.nodes.Literallayout.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Mediaobject">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Mediaobject</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Mediaobject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Mediaobject.align">
+<code class="descname">align</code><em class="property"> = 'center'</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.align" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Mediaobject.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Mediaobject.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Mediaobject.tag">
+<code class="descname">tag</code><em class="property"> = 'mediaobject'</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Para">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Para</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Para"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Para" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Para.tag">
+<code class="descname">tag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Para.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Part">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Part</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Part"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Part.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Part.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Part.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.Part.rstTitle">
+<em class="property">classmethod </em><code class="descname">rstTitle</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Part.rstTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Part.rstTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Part.rstTitleMarkup">
+<code class="descname">rstTitleMarkup</code><em class="property"> = '#'</em><a class="headerlink" href="#dbxml2rst.nodes.Part.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Part.tag">
+<code class="descname">tag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Part.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Preface">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Preface</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Preface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Preface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Chapter" title="dbxml2rst.nodes.Chapter"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Chapter</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Preface.rstTitleMarkup">
+<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Preface.tag">
+<code class="descname">tag</code><em class="property"> = 'preface'</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Programlisting">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Programlisting</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Programlisting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Programlisting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LiteralBlock" title="dbxml2rst.nodes.LiteralBlock"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LiteralBlock</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Programlisting.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Programlisting.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Programlisting.language">
+<code class="descname">language</code><em class="property"> = 'c'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Programlisting.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '.. code-block:: %(language)s\n\n%(literal)s\n\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Programlisting.tag">
+<code class="descname">tag</code><em class="property"> = 'programlisting'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Property">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Property</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Property"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Property.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Property.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Property.tag">
+<code class="descname">tag</code><em class="property"> = 'property'</em><a class="headerlink" href="#dbxml2rst.nodes.Property.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.ReSTInclude">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">ReSTInclude</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTInclude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTInclude.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTInclude.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTInclude.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTInclude.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTInclude.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTInclude.get_toctree_entry">
+<code class="descname">get_toctree_entry</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTInclude.get_toctree_entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.get_toctree_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTInclude.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTInclude.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTInclude.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTInclude.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTInclude.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '\n.. toctree::\n    :maxdepth: 1\n\n%(entries)s\n\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTInclude.tag">
+<code class="descname">tag</code><em class="property"> = 'rstInclude'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.ReSTTemplate">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">ReSTTemplate</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTTemplate.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTTemplate.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTTemplate.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.ReSTTemplate.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#ReSTTemplate.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTTemplate.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '\n.. kernel-doc:: %(fname)s\n%(options)s\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.ReSTTemplate.tag">
+<code class="descname">tag</code><em class="property"> = 'rstTemplate'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refentry">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refentry</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refentry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refentry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Refentry.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refentry.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refentry.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refentry.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Refentry.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Refentry.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refentry.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refentry.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refentry.tag">
+<code class="descname">tag</code><em class="property"> = 'refentry'</em><a class="headerlink" href="#dbxml2rst.nodes.Refentry.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refentryinfo">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refentryinfo</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refentryinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refentryinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refentryinfo.dropFlag">
+<code class="descname">dropFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Refentryinfo.dropFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refentryinfo.tag">
+<code class="descname">tag</code><em class="property"> = 'refentryinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Refentryinfo.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refnamediv">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refnamediv</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refnamediv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refnamediv.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refnamediv.tag">
+<code class="descname">tag</code><em class="property"> = 'refnamediv'</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refpurpose">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refpurpose</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refpurpose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refpurpose.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refpurpose.tag">
+<code class="descname">tag</code><em class="property"> = 'refpurpose'</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refsect1">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refsect1</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsect1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsect1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect1" title="dbxml2rst.nodes.Sect1"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect1</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsect1.tag">
+<code class="descname">tag</code><em class="property"> = 'refsect1'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect1.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refsect2">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refsect2</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsect2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsect2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect2" title="dbxml2rst.nodes.Sect2"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect2</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsect2.tag">
+<code class="descname">tag</code><em class="property"> = 'refsect2'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect2.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refsect3">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refsect3</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsect3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsect3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect3" title="dbxml2rst.nodes.Sect3"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect3</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsect3.tag">
+<code class="descname">tag</code><em class="property"> = 'refsect3'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect3.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refsection">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refsection</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Section" title="dbxml2rst.nodes.Section"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Section</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsection.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsection.tag">
+<code class="descname">tag</code><em class="property"> = 'refsection'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Refsynopsisdiv">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Refsynopsisdiv</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsynopsisdiv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsynopsisdiv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Section" title="dbxml2rst.nodes.Section"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Section</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Refsynopsisdiv.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Refsynopsisdiv.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Refsynopsisdiv.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Refsynopsisdiv.tag">
+<code class="descname">tag</code><em class="property"> = 'refsynopsisdiv'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsynopsisdiv.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Revision">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Revision</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Revision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Revision.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Revision.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Revision.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Revision.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Revision.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Revision.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Revision.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Revision.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Revision.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Revision.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Revision.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Revision.tag">
+<code class="descname">tag</code><em class="property"> = 'revision'</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Revremark">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Revremark</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Revremark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Revremark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Revremark.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Revremark.tag">
+<code class="descname">tag</code><em class="property"> = 'revremark'</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Screen">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Screen</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Screen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LiteralBlock" title="dbxml2rst.nodes.LiteralBlock"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LiteralBlock</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Screen.tag">
+<code class="descname">tag</code><em class="property"> = 'screen'</em><a class="headerlink" href="#dbxml2rst.nodes.Screen.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Sect1">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Sect1</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Sect1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Sect1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect1.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect1.tag">
+<code class="descname">tag</code><em class="property"> = 'sect1'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Sect2">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Sect2</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Sect2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Sect2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect2.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect2.tag">
+<code class="descname">tag</code><em class="property"> = 'sect2'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Sect3">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Sect3</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Sect3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Sect3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect3.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Sect3.tag">
+<code class="descname">tag</code><em class="property"> = 'sect3'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Section">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Section</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Section.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Section.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Section.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Section.rstTitle">
+<code class="descname">rstTitle</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Section.rstTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Section.rstTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Section.rstTitleMarkup">
+<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.Section.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Section.tag">
+<code class="descname">tag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Section.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Setinfo">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Setinfo</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Setinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Setinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Setinfo.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Setinfo.tag">
+<code class="descname">tag</code><em class="property"> = 'setinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Structfield">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Structfield</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Structfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Structfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Structfield.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Structfield.tag">
+<code class="descname">tag</code><em class="property"> = 'structfield'</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Structname">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Structname</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Structname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Structname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Structname.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Structname.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Structname.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Structname.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Structname.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Structname.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Structname.tag">
+<code class="descname">tag</code><em class="property"> = 'structname'</em><a class="headerlink" href="#dbxml2rst.nodes.Structname.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.StructureTag">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">StructureTag</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#StructureTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.StructureTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.StructureTag.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#StructureTag.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.StructureTag.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#StructureTag.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.StructureTag.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#StructureTag.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.rstPreMarkup">
+<code class="descname">rstPreMarkup</code><em class="property"> = '\n.. _%(ID)s:\n'</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstPreMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.StructureTag.rstTitle">
+<em class="property">classmethod </em><code class="descname">rstTitle</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#StructureTag.rstTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.rstTitleMarkup">
+<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.StructureTag.tag">
+<code class="descname">tag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Subtitle">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Subtitle</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Subtitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Subtitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Subtitle.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Subtitle.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Subtitle.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Subtitle.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Subtitle.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Subtitle.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Subtitle.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '\n**%(title)s**\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Subtitle.tag">
+<code class="descname">tag</code><em class="property"> = 'subtitle'</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Synopsis">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Synopsis</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Synopsis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Synopsis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Programlisting" title="dbxml2rst.nodes.Programlisting"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Programlisting</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Synopsis.tag">
+<code class="descname">tag</code><em class="property"> = 'synopsis'</em><a class="headerlink" href="#dbxml2rst.nodes.Synopsis.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Table">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Table</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Table.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.Table.assert_tgroup">
+<em class="property">classmethod </em><code class="descname">assert_tgroup</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table.assert_tgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table.assert_tgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.Table.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Table.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Table.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Table.postText">
+<code class="descname">postText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table.postText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table.postText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Table.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Table.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Table.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.rstPostText">
+<code class="descname">rstPostText</code><em class="property"> = '\n%(tableEndMark)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPostText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.rstPreText">
+<code class="descname">rstPreText</code><em class="property"> = '\n.. table::%(title)s\n\n%(tableStartMark)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPreText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.tableEndMark">
+<code class="descname">tableEndMark</code><em class="property"> = '-- table end markup --'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableEndMark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.tableStartMark">
+<code class="descname">tableStartMark</code><em class="property"> = '-- table start markup --'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableStartMark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Table.tag">
+<code class="descname">tag</code><em class="property"> = 'table'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Tgroup">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Tgroup</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Tgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Tgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Tgroup.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Tgroup.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Tgroup.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Tgroup.injBlock">
+<code class="descname">injBlock</code><em class="property"> = True</em><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.Tgroup.repairTableDef">
+<em class="property">classmethod </em><code class="descname">repairTableDef</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Tgroup.repairTableDef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.repairTableDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Tgroup.tag">
+<code class="descname">tag</code><em class="property"> = 'tgroup'</em><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Token">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Token</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Token.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Token.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Token.tag">
+<code class="descname">tag</code><em class="property"> = 'token'</em><a class="headerlink" href="#dbxml2rst.nodes.Token.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Trademark">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Trademark</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Trademark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Trademark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Trademark.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Trademark.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Trademark.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Trademark.tag">
+<code class="descname">tag</code><em class="property"> = 'trademark'</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Trademark.trademark">
+<code class="descname">trademark</code><em class="property"> = '®'</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.trademark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Ulink">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Ulink</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Ulink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Ulink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LinkTag" title="dbxml2rst.nodes.LinkTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LinkTag</span></code></a></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.Ulink.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Ulink.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Ulink.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.Ulink.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Ulink.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Ulink.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Ulink.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = '`%(text)s &lt;%(linkend)s&gt;`__'</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Ulink.tag">
+<code class="descname">tag</code><em class="property"> = 'ulink'</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Varname">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Varname</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Varname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Varname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Varname.replaceTag">
+<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.replaceTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Varname.tag">
+<code class="descname">tag</code><em class="property"> = 'varname'</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.XMLTag">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">XMLTag</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.applyFilter">
+<code class="descname">applyFilter</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.applyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.blockText">
+<em class="property">classmethod </em><code class="descname">blockText</code><span class="sig-paren">(</span><em>prefix</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.blockText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.blockText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds <code class="docutils literal"><span class="pre">prefix</span></code> to lines from <code class="docutils literal"><span class="pre">text</span></code>, deletes trailing whitespaces</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.breakFlag">
+<code class="descname">breakFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.breakFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.chunkNode">
+<em class="property">classmethod </em><code class="descname">chunkNode</code><span class="sig-paren">(</span><em>node</em>, <em>folder</em>, <em>fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.chunkNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.chunkNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.copyNode">
+<em class="property">classmethod </em><code class="descname">copyNode</code><span class="sig-paren">(</span><em>node</em>, <em>tag=None</em>, <em>moveID=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.copyNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.copyNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.dropFlag">
+<code class="descname">dropFlag</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.dropFlag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.dropNode">
+<em class="property">classmethod </em><code class="descname">dropNode</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.dropNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.dropNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.getFormatedTitle">
+<em class="property">classmethod </em><code class="descname">getFormatedTitle</code><span class="sig-paren">(</span><em>node</em>, <em>from_tag='title'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getFormatedTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getFormatedTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>title as one line, prefixed with py:attribute:<cite>rstBlock</cite></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.getInjBlockTag">
+<em class="property">classmethod </em><code class="descname">getInjBlockTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getInjBlockTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getInjBlockTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.getInjInlineTag">
+<em class="property">classmethod </em><code class="descname">getInjInlineTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getInjInlineTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getInjInlineTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.getStripedText">
+<em class="property">classmethod </em><code class="descname">getStripedText</code><span class="sig-paren">(</span><em>*nodelist</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getStripedText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getStripedText" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text from node.itertext() with reduced whitespaces</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.getText">
+<em class="property">classmethod </em><code class="descname">getText</code><span class="sig-paren">(</span><em>*nodelist</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getText" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text <em>as is</em> from <code class="docutils literal"><span class="pre">node.itertext()</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.injBlock">
+<code class="descname">injBlock</code><em class="property"> = False</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.injBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.insertAsRawHTML">
+<em class="property">classmethod </em><code class="descname">insertAsRawHTML</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.insertAsRawHTML"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.insertAsRawHTML" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.normalizeID">
+<em class="property">classmethod </em><code class="descname">normalizeID</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.normalizeID"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.normalizeID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.pandocFilter">
+<em class="property">classmethod </em><code class="descname">pandocFilter</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>fmt</em>, <em>meta</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.pandocFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.pandocFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.parseFile">
+<code class="descname">parseFile</code><span class="sig-paren">(</span><em>folder</em>, <em>fname</em>, <em>fragTag=None</em>, <em>ID=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.parseFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.parseFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to parse the XML file with <code class="xref py py-mod docutils literal"><span class="pre">lxml.etree</span></code>.</p>
+<p>A unknown entity within a xml (fragment) will cause an exception. In
+this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities" title="dbxml2rst.nodes.subEntities"><code class="xref py py-func docutils literal"><span class="pre">subEntities()</span></code></a> first!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.postText">
+<code class="descname">postText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.postText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.postText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.preText">
+<code class="descname">preText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.preText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.preText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTag.replaceNode">
+<em class="property">classmethod </em><code class="descname">replaceNode</code><span class="sig-paren">(</span><em>oldNode</em>, <em>newNode</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.replaceNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.replaceNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.replaceText">
+<code class="descname">replaceText</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.replaceText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.replaceText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstAnchor">
+<code class="descname">rstAnchor</code><em class="property"> = '\n.. _%(ID)s:\n'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstAnchor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstBlock">
+<code class="descname">rstBlock</code><em class="property"> = ''</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstInclude_tag">
+<code class="descname">rstInclude_tag</code><em class="property"> = 'rstInclude'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInclude_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstInjection_sig">
+<code class="descname">rstInjection_sig</code><em class="property"> = '!ri!'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInjection_sig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstMarkup">
+<code class="descname">rstMarkup</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.rstTemplate_tag">
+<code class="descname">rstTemplate_tag</code><em class="property"> = 'rstTemplate'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstTemplate_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTag.tag">
+<code class="descname">tag</code><em class="property"> = None</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.walk">
+<code class="descname">walk</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walks through the node-tree and applies matching filters on each node.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbxml2rst.nodes.XMLTag.walkChilds">
+<code class="descname">walkChilds</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walkChilds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walkChilds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.XMLTagType">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">XMLTagType</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">type</span></code></p>
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTagType.getClassByTag">
+<em class="property">classmethod </em><code class="descname">getClassByTag</code><span class="sig-paren">(</span><em>mcs</em>, <em>tagName</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getClassByTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getClassByTag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dbxml2rst.nodes.XMLTagType.getTagInstance">
+<em class="property">classmethod </em><code class="descname">getTagInstance</code><span class="sig-paren">(</span><em>mcs</em>, <em>node</em>, <em>parseData</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getTagInstance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getTagInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a XMLTag instance which fits to the tag or <code class="docutils literal"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTagType.typeList">
+<code class="descname">typeList</code><em class="property"> = {'programlisting': &lt;class 'dbxml2rst.nodes.Programlisting'&gt;, 'appendix': &lt;class 'dbxml2rst.nodes.Appendix'&gt;, 'table': &lt;class 'dbxml2rst.nodes.Table'&gt;, 'refsect2': &lt;class 'dbxml2rst.nodes.Refsect2'&gt;, 'structfield': &lt;class 'dbxml2rst.nodes.Structfield'&gt;, 'property': &lt;class 'dbxml2rst.nodes.Property'&gt;, 'para': &lt;class 'dbxml2rst.nodes.Para'&gt;, 'section': &lt;class 'dbxml2rst.nodes.Section'&gt;, 'refsection': &lt;class 'dbxml2rst.nodes.Refsection'&gt;, 'sect3': &lt;class 'dbxml2rst.nodes.Sect3'&gt;, 'xref': &lt;class 'dbxml2rst.nodes.Xref'&gt;, 'entrytbl': &lt;class 'dbxml2rst.nodes.Entrytbl'&gt;, 'rstTemplate': &lt;class 'dbxml2rst.nodes.ReSTTemplate'&gt;, 'literallayout': &lt;class 'dbxml2rst.nodes.Literallayout'&gt;, 'refentry': &lt;class 'dbxml2rst.nodes.Refentry'&gt;, 'token': &lt;class 'dbxml2rst.nodes.Token'&gt;, 'informalexample': &lt;class 'dbxml2rst.nodes.Informalexample'&gt;, 'legalnotice': &lt;class 'dbxml2rst.nodes.Legalnotice'&gt;, 'bookinfo': &lt;class 'dbxml2rst.nodes.Bookinfo'&gt;, 'revision': &lt;class 'dbxml2rst.nodes.Revision'&gt;, 'figure': &lt;class 'dbxml2rst.nodes.Figure'&gt;, 'copyright': &lt;class 'dbxml2rst.nodes.Copyright'&gt;, 'filename': &lt;class 'dbxml2rst.nodes.Filename'&gt;, 'subtitle': &lt;class 'dbxml2rst.nodes.Subtitle'&gt;, 'bibliography': &lt;class 'dbxml2rst.nodes.Bibliography'&gt;, 'refnamediv': &lt;class 'dbxml2rst.nodes.Refnamediv'&gt;, 'setinfo': &lt;class 'dbxml2rst.nodes.Setinfo'&gt;, 'sect1': &lt;class 'dbxml2rst.nodes.Sect1'&gt;, 'authorgroup': &lt;class 'dbxml2rst.nodes.Authorgroup'&gt;, 'function': &lt;class 'dbxml2rst.nodes.Function'&gt;, 'screen': &lt;class 'dbxml2rst.nodes.Screen'&gt;, 'constant': &lt;class 'dbxml2rst.nodes.Constant'&gt;, 'varname': &lt;class 'dbxml2rst.nodes.Varname'&gt;, 'mediaobject': &lt;class 'dbxml2rst.nodes.Mediaobject'&gt;, 'computeroutput': &lt;class 'dbxml2rst.nodes.Computeroutput'&gt;, 'biblioentry': &lt;class 'dbxml2rst.nodes.Biblioentry'&gt;, 'code': &lt;class 'dbxml2rst.nodes.Code'&gt;, 'informaltable': &lt;class 'dbxml2rst.nodes.Informaltable'&gt;, 'preface': &lt;class 'dbxml2rst.nodes.Preface'&gt;, 'trademark': &lt;class 'dbxml2rst.nodes.Trademark'&gt;, 'funcprototype': &lt;class 'dbxml2rst.nodes.Funcprototype'&gt;, 'sect2': &lt;class 'dbxml2rst.nodes.Sect2'&gt;, 'synopsis': &lt;class 'dbxml2rst.nodes.Synopsis'&gt;, 'structname': &lt;class 'dbxml2rst.nodes.Structname'&gt;, 'ulink': &lt;class 'dbxml2rst.nodes.Ulink'&gt;, 'chapter': &lt;class 'dbxml2rst.nodes.Chapter'&gt;, 'refentryinfo': &lt;class 'dbxml2rst.nodes.Refentryinfo'&gt;, 'refsynopsisdiv': &lt;class 'dbxml2rst.nodes.Refsynopsisdiv'&gt;, 'funcsynopsisinfo': &lt;class 'dbxml2rst.nodes.Funcsynopsisinfo'&gt;, 'refsect1': &lt;class 'dbxml2rst.nodes.Refsect1'&gt;, 'link': &lt;class 'dbxml2rst.nodes.Link'&gt;, 'rstInclude': &lt;class 'dbxml2rst.nodes.ReSTInclude'&gt;, 'refsect3': &lt;class 'dbxml2rst.nodes.Refsect3'&gt;, 'part': &lt;class 'dbxml2rst.nodes.Part'&gt;, 'revremark': &lt;class 'dbxml2rst.nodes.Revremark'&gt;, 'tgroup': &lt;class 'dbxml2rst.nodes.Tgroup'&gt;, 'refpurpose': &lt;class 'dbxml2rst.nodes.Refpurpose'&gt;, 'informalfigure': &lt;class 'dbxml2rst.nodes.Informalfigure'&gt;}</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.typeList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.XMLTagType.undifined">
+<code class="descname">undifined</code><em class="property"> = &lt;object object&gt;</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.undifined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dbxml2rst.nodes.Xref">
+<em class="property">class </em><code class="descclassname">dbxml2rst.nodes.</code><code class="descname">Xref</code><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#Xref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.Xref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LinkTag" title="dbxml2rst.nodes.LinkTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LinkTag</span></code></a></p>
+<dl class="attribute">
+<dt id="dbxml2rst.nodes.Xref.tag">
+<code class="descname">tag</code><em class="property"> = 'xref'</em><a class="headerlink" href="#dbxml2rst.nodes.Xref.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.nodes.filterXML">
+<code class="descclassname">dbxml2rst.nodes.</code><code class="descname">filterXML</code><span class="sig-paren">(</span><em>folder</em>, <em>inFile</em>, <em>outFile</em>, <em>xmlFilter</em>, <em>parseIncludes=False</em>, <em>fragTag=None</em>, <em>ID=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#filterXML"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.filterXML" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace some xml-Markups with reST literals.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.nodes.subEntities">
+<code class="descclassname">dbxml2rst.nodes.</code><code class="descname">subEntities</code><span class="sig-paren">(</span><em>inFile</em>, <em>outFile</em>, <em>ext_entities</em>, <em>int_entities</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#subEntities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.subEntities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Substitude internal and external entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>folder</strong> (<em>str</em>) &#8211; Root-folder where conversion takes place.</li>
+<li><strong>inFile</strong> (<em>str</em>) &#8211; Preprocess XML file.</li>
+<li><strong>ext_entities</strong> (<em>EntityContainer or None</em>) &#8211; container with the external entities</li>
+<li><strong>int_entities</strong> (<em>EntityContainer or None</em>) &#8211; container with the internal entities</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>External entities will be replaced by a <code class="docutils literal"><span class="pre">&lt;rstInclude</span> <span class="pre">fname='%s'/&gt;</span></code> tag.
+XMLTag.rstInclude_tag</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbxml2rst.nodes.subTemplate">
+<code class="descclassname">dbxml2rst.nodes.</code><code class="descname">subTemplate</code><span class="sig-paren">(</span><em>inFile</em>, <em>outFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#subTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.subTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Substitude kenerle-doc place holder in docbook.tmpl files.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dbxml2rst.pandoc.html" class="btn btn-neutral float-right" title="dbxml2rst.pandoc module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dbxml2rst.hooks.html" class="btn btn-neutral" title="dbxml2rst.hooks module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

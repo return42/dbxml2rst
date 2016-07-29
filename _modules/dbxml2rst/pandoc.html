@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dbxml2rst.pandoc &mdash; dbxml2rst 20160727 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dbxml2rst 20160727 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> dbxml2rst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20160727
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install dbxml2rst and Pandoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dbxml2rst/dbxml2rst.html">dbxml2rst package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">dbxml2rst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>dbxml2rst.pandoc</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for dbxml2rst.pandoc</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8; mode: python -*-</span>
+<span class="c1"># pylint: disable=C0103,R0912,R0914,R0915</span>
+
+<span class="sd">u&quot;&quot;&quot;</span>
+<span class="sd">    dbxml2rst.pandoc</span>
+<span class="sd">    ~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">    Pandoc stuff used by the dbxml2rst library</span>
+
+<span class="sd">    :copyright:  Copyright (C) 2016  Markus Heiser</span>
+<span class="sd">    :license:    GPL V3.0, see LICENSE for details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># imports</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">fspath</span> <span class="k">import</span> <span class="n">which</span>
+
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="k">import</span> <span class="n">Table</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">helper</span>
+<span class="kn">from</span> <span class="nn">.helper</span> <span class="k">import</span> <span class="n">LOG</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># constants</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="n">PANDOC_EXE</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="init"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.init">[docs]</a><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">PANDOC_EXE</span> <span class="c1"># pylint: disable=W0603</span>
+    <span class="n">PANDOC_EXE</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="s1">&#39;pandoc&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="xml2json"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.xml2json">[docs]</a><span class="k">def</span> <span class="nf">xml2json</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;convert xml file to json file with pandoc&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">PANDOC_EXE</span><span class="p">:</span>
+        <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;pandoc is not installed&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">PANDOC_EXE</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+        <span class="s2">&quot;--smart&quot;</span>
+        <span class="c1"># , &quot;-s&quot; # standalone document</span>
+        <span class="p">,</span> <span class="s2">&quot;--from&quot;</span><span class="p">,</span> <span class="s2">&quot;docbook&quot;</span>
+        <span class="p">,</span> <span class="s2">&quot;--to&quot;</span><span class="p">,</span> <span class="s2">&quot;json&quot;</span>
+        <span class="p">,</span> <span class="s2">&quot;--output&quot;</span> <span class="p">,</span> <span class="n">dst</span>
+        <span class="p">,</span> <span class="n">src</span>
+        <span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="toJSONFilters"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.toJSONFilters">[docs]</a><span class="k">def</span> <span class="nf">toJSONFilters</span><span class="p">(</span><span class="n">input_stream</span><span class="p">,</span> <span class="n">output_stream</span><span class="p">,</span> <span class="o">*</span><span class="n">actions</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">&quot;&quot;&quot;Modified version of pandoc filter.</span>
+
+<span class="sd">    This version of pandoc filter is able to read from any input stream (not only</span>
+<span class="sd">    from stdin) and writes to any output stream (not only stdout).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">pandocfilters</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">input_stream</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
+    <span class="n">altered</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">pandocfilters</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">doc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;unMeta&#39;</span><span class="p">])</span>
+        <span class="p">,</span> <span class="n">actions</span><span class="p">,</span> <span class="n">doc</span> <span class="p">)</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">altered</span><span class="p">,</span> <span class="n">output_stream</span><span class="p">)</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="jsonFilter"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.jsonFilter">[docs]</a><span class="k">def</span> <span class="nf">jsonFilter</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">*</span><span class="n">filters</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;apply ``*filters`` on a pandoc json file&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">src</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">inFile</span><span class="p">,</span> <span class="n">dst</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outFile</span><span class="p">:</span>
+        <span class="n">toJSONFilters</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="o">*</span><span class="n">filters</span><span class="p">)</span></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="json2rst"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.json2rst">[docs]</a><span class="k">def</span> <span class="nf">json2rst</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;convert a json file with pandoc to reST markup&quot;&quot;&quot;</span>
+
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">PANDOC_EXE</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+        <span class="s2">&quot;--reference-links&quot;</span>
+        <span class="p">,</span> <span class="s2">&quot;--from&quot;</span><span class="p">,</span> <span class="s2">&quot;json&quot;</span>
+        <span class="p">,</span> <span class="s2">&quot;--to&quot;</span><span class="p">,</span> <span class="s2">&quot;rst&quot;</span>
+        <span class="p">,</span> <span class="s2">&quot;--output&quot;</span> <span class="p">,</span> <span class="n">dst</span>
+        <span class="c1"># activate this for the large ASCII tables</span>
+        <span class="c1">#, &quot;--columns&quot; , &quot;180&quot;</span>
+        <span class="p">,</span> <span class="n">src</span>
+        <span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="fixPandocRST"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.fixPandocRST">[docs]</a><span class="k">def</span> <span class="nf">fixPandocRST</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sd">u&quot;&quot;&quot;Fix common reST markup bugs from the pandoc reST writer.  &quot;&quot;&quot;</span>
+
+    <span class="c1"># fix malicious pandoc quoting</span>
+    <span class="c1"># https://github.com/jgm/pandoc/blob/master/src/Text/Pandoc/Writers/RST.hs#L162</span>
+    <span class="c1"># --&gt; &quot;&quot;&quot;escapeStringUsing (backslashEscapes &quot;`\\|*_&quot;)&quot;&quot;&quot;</span>
+    <span class="n">backslashEscapes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r&quot;</span><span class="se">\\</span><span class="s2">[`\|\||\*|_]&quot;</span><span class="p">)</span>
+
+    <span class="n">indent</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">src</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+
+        <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">helper</span><span class="o">.</span><span class="n">rstHEADER</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">u&quot;⋆&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+            <span class="n">striped</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">striped</span><span class="p">:</span>
+                <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">striped</span> <span class="o">==</span> <span class="n">Table</span><span class="o">.</span><span class="n">tableStartMark</span><span class="p">:</span>
+                <span class="n">indent</span> <span class="o">+=</span> <span class="n">Table</span><span class="o">.</span><span class="n">rstBlock</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">striped</span> <span class="o">==</span> <span class="n">Table</span><span class="o">.</span><span class="n">tableEndMark</span><span class="p">:</span>
+                <span class="n">indent</span> <span class="o">=</span> <span class="n">indent</span><span class="p">[:</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">Table</span><span class="o">.</span><span class="n">rstBlock</span><span class="p">)]</span>
+                <span class="k">continue</span>
+
+            <span class="n">line</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">+</span> <span class="n">line</span>
+
+            <span class="k">if</span> <span class="n">backslashEscapes</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+                <span class="n">spaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;|&quot;</span><span class="p">:</span>
+                    <span class="c1"># this is a table markup</span>
+                    <span class="n">buf</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">:</span>
+                            <span class="n">spaces</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span>
+                        <span class="k">elif</span> <span class="n">spaces</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]:</span>
+                            <span class="n">buf</span> <span class="o">+=</span> <span class="n">spaces</span> <span class="o">+</span> <span class="n">c</span>
+                            <span class="n">spaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">buf</span> <span class="o">+=</span> <span class="n">c</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">helper</span><span class="o">.</span><span class="n">rstFOOTER</span><span class="p">)</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># init</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="n">init</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Markus Heiser.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'20160727',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
