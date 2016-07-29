@@ -1,5 +1,7 @@
 .. -*- coding: utf-8; mode: rst -*-
 
+.. _dbxml2rst:
+
 ===================
 DocBook-XML to reST
 ===================
