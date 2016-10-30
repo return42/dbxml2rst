@@ -4,7 +4,9 @@
 from setuptools import setup, find_packages
 import dbxml2rst
 install_requires = [
-    'fspath' ]
+    'fspath'
+    , 'pandocfilters'
+]
 
 setup(
     name               = "dbxml2rst"

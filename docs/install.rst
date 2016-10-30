@@ -16,6 +16,7 @@ If you are a developer and like to contribute to the dbxml2rst library, to run
 all make targets, you need also to install pylint3::
 
   sudo apt-get install pylint3
+  sudo apt-get install python3-lxml
 
 Next step is to clone the repository from github and install it::
 
@@ -56,7 +57,7 @@ To install pandoc and ghc follow:
 
 Alternative use the 'pandoc-build' target of dbxm2rst Makefile::
 
-  $ make haskell-stack
+  $ make pandoc-build
 
 .. caution::
 
