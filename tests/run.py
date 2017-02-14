@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-    FSPath unit test driver
-    ~~~~~~~~~~~~~~~~~~~~~~~
+    dbxml2rst unit test driver
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    This script runs the FSPath unit test suite.
+    This script runs the dbxml2rst unit test suite.
 
     :copyright:  Copyright (C) 2016 Markus Heiser
     :license:    GPL Version 2, June 1991 see linux/COPYING for details.
@@ -31,7 +31,7 @@ TEST_TEMPDIR = FSPath(OS_ENV.TEST_TEMPDIR)
 print('Temporary files will be placed in %s.' % TEST_TEMPDIR)
 TEST_TEMPDIR.makedirs()
 
-print('Running FSPath test suite (with Python %s)...' % sys.version.split()[0])
+print('Running dbxml2rst test suite (with Python %s)...' % sys.version.split()[0])
 sys.stdout.flush()
 
 import nose
