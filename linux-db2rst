@@ -114,6 +114,10 @@ def main():
         "filename", nargs="+"
         , help="DocBook-XML template file (e.g 'kernel-hacking.tmpl')")
 
+    cmd.add_argument(
+        "--nochunk", action = 'store_true'
+        , help = "don't chunk files along tags like chapter etc." )
+
     # media2rst
     # ---------
 
@@ -177,9 +181,12 @@ def db2rst(cliArgs):                                    # pylint: disable=W0613
 def _db2rst(cliArgs, origFile):                          # pylint: disable=W0613
 # ==============================================================================
 
-    hook_list = [
-        hook_chunk_by_tag("book", "part", "chapter", ".//refentry")
-        , hook_copy_file_resource(LINUX_DOCBOOK_ROOT)
+    hook_list = []
+    if not cliArgs.nochunk:
+        hook_list.append(hook_chunk_by_tag("book", "part", "chapter", ".//refentry"))
+
+    hook_list += [
+        hook_copy_file_resource(LINUX_DOCBOOK_ROOT)
         , hook_html2db_table
         , hook_drop_usless_informaltables
         #, hook_fix_broken_tables(fname_list=["kernel-locking/cheatsheet", ])
