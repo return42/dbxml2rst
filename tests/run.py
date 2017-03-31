@@ -6,7 +6,7 @@
 
     This script runs the dbxml2rst unit test suite.
 
-    :copyright:  Copyright (C) 2016 Markus Heiser
+    :copyright:  Copyright (C) 2017 Markus Heiser
     :license:    GPL Version 2, June 1991 see linux/COPYING for details.
 """
 from __future__ import print_function

@@ -14,7 +14,7 @@ done by developers, not end users. This in mind, the ``dbxml2rst`` tools are not
 *ready to go* for every one.  The ``dbxml2rst`` toolbox is useful for DocBook
 to reST migration, it don't attempt to be a *converter* for a daily usage.
 
-:copyright:  Copyright (C) 2016 Markus Heiser
+:copyright:  Copyright (C) 2017 Markus Heiser
 :e-mail:     *markus.heiser*\ *@*\ *darmarIT.de*
 :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 :docs:       http://return42.github.io/dbxml2rst
@@ -23,7 +23,7 @@ to reST migration, it don't attempt to be a *converter* for a daily usage.
 """
 
 __version__     = "20160727"
-__copyright__   = "2016 Markus Heiser"
+__copyright__   = "2017 Markus Heiser"
 __url__         = "https://github.com/return42/dbxm2rst"
 __description__ = "Collection of *hackish* tools to migrate DocBook-XML to reST."
 __license__     = "GPLv2"
