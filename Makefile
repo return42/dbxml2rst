@@ -49,10 +49,12 @@ pandoc-build:
 	cd pandoc-build/pandoc ; stack install --install-ghc --stack-yaml stack.full.yaml
 
 PHONY += install
-install: pyinstall
+install:
+	pip3 $(PIP_VERBOSE) install $(PIP_INST) -e .
 
 PHONY += uninstall
 uninstall: pyuninstall
+	pip3 $(PIP_VERBOSE) uninstall --yes $(PYOBJECTS)
 
 PHONY += deploy
 storage: docs-clean docs

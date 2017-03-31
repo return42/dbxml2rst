@@ -12,12 +12,6 @@ OS, e.g. on Debian/Ubuntu::
 
   sudo apt-get install python3 python3-pip3
 
-If you are a developer and like to contribute to the dbxml2rst library, to run
-all make targets, you need also to install pylint3::
-
-  sudo apt-get install pylint3
-  sudo apt-get install python3-lxml
-
 Next step is to clone the repository from github and install it::
 
   git clone https://github.com/return42/dbxml2rst.git
