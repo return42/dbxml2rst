@@ -10,7 +10,7 @@ u"""
 
     Library with XML-filters to convert DocBook-XML to reST
 
-    :copyright:  Copyright (C) 2016  Markus Heiser
+    :copyright:  Copyright (C) 2017  Markus Heiser
     :license:    GPL V3.0, see LICENSE for details.
 """
 

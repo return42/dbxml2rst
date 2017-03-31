@@ -8,7 +8,7 @@ u"""
 
     Hooks used by the dbxml2rst library
 
-    :copyright:  Copyright (C) 2016  Markus Heiser
+    :copyright:  Copyright (C) 2017  Markus Heiser
     :license:    GPL V3.0, see LICENSE for details.
 """
 
