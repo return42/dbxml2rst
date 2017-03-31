@@ -1,7 +1,6 @@
 *~
 gh-pages
 pandoc-build
-cache/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -13,18 +12,11 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
 build/
-develop-eggs/
+local/
 dist/
 downloads/
-eggs/
 .eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -92,3 +84,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# odd OS
+.DS_Store

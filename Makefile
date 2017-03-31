@@ -9,8 +9,11 @@ include utils/makefile.include
 include utils/makefile.python
 include utils/makefile.sphinx
 
-GIT_URL   = https://github.com/return42/dbxml2rst.git
-PYOBJECTS = dbxml2rst
+LOGIN     ?= user
+WEB_FOLDER = $(LOGIN)@storage:/share/OnlineDoc/dbxml2rst
+
+GIT_URL    = https://github.com/return42/dbxml2rst.git
+PYOBJECTS  = dbxml2rst
 
 all: clean pylint pytest build docs
 
@@ -50,6 +53,10 @@ install: pyinstall
 
 PHONY += uninstall
 uninstall: pyuninstall
+
+PHONY += deploy
+storage: docs-clean docs
+	rsync -av $(DOCS_DIST)/ $(WEB_FOLDER)
 
 PHONY += docs
 docs:  sphinx-doc
