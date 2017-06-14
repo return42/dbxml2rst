@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
         <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
         <link rel="next" title="dbxml2rst.nodes module" href="dbxml2rst.nodes.html"/>
@@ -44,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +90,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
 </ul>
@@ -111,8 +120,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dbxml2rst</a>
+        
       </nav>
 
 
@@ -121,25 +132,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
-      
-    <li>dbxml2rst.hooks module</li>
+        
+      <li>dbxml2rst.hooks module</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/dbxml2rst/dbxml2rst.hooks.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/dbxml2rst/dbxml2rst.hooks.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -154,7 +182,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2017  Markus Heiser</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
 </tr>
@@ -188,9 +216,9 @@ the ASCII-art table fails within pandoc.</p>
 
 <dl class="function">
 <dt id="dbxml2rst.hooks.hook_flatten_tables">
-<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_flatten_tables</code><span class="sig-paren">(</span><em>table_id_list='all'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_flatten_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_flatten_tables" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dbxml2rst.hooks.</code><code class="descname">hook_flatten_tables</code><span class="sig-paren">(</span><em>table_id_list=’all’</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/hooks.html#hook_flatten_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.hooks.hook_flatten_tables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hook to convert tables into a double-stage list.</p>
-<p>This hook converts a tables (by id or &#8220;all&#8221;) into the <code class="docutils literal"><span class="pre">flat-table</span></code>
+<p>This hook converts a tables (by id or “all”) into the <code class="docutils literal"><span class="pre">flat-table</span></code>
 directive</p>
 </dd></dl>
 
@@ -212,15 +240,18 @@ directive</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dbxml2rst.nodes.html" class="btn btn-neutral float-right" title="dbxml2rst.nodes module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dbxml2rst.nodes.html" class="btn btn-neutral float-right" title="dbxml2rst.nodes module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dbxml2rst.helper.html" class="btn btn-neutral" title="dbxml2rst.helper module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dbxml2rst.helper.html" class="btn btn-neutral" title="dbxml2rst.helper module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -229,7 +260,7 @@ directive</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -254,7 +285,8 @@ directive</p>
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

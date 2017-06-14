@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="#"/>
         <link rel="next" title="Install dbxml2rst and Pandoc" href="install.html"/> 
 
@@ -42,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -82,7 +88,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
 </ul>
@@ -100,8 +109,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">dbxml2rst</a>
+        
       </nav>
 
 
@@ -110,23 +121,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>DocBook-XML to reST</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>DocBook-XML to reST</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -136,8 +164,8 @@
 <span id="docbook-xml-to-rest"></span><span id="dbxml2rst"></span><h1>DocBook-XML to reST<a class="headerlink" href="#module-dbxml2rst" title="Permalink to this headline">¶</a></h1>
 <p>Normally XML tools are used to convert DocBook XML, e.g. XSL Style-sheets to
 convert DocBook XML into various formats (examples:
-<a class="reference external" href="http://docbook.sourceforge.net/release/xsl/current">http://docbook.sourceforge.net/release/xsl/current</a>). I haven&#8217;t found any XSL
-Template to convert DocBook to reST, and I&#8217;am not interested in developing
+<a class="reference external" href="http://docbook.sourceforge.net/release/xsl/current">http://docbook.sourceforge.net/release/xsl/current</a>). I haven’t found any XSL
+Template to convert DocBook to reST, and I’am not interested in developing
 one. Thats why I compiled these small <code class="docutils literal"><span class="pre">dbxml2rst</span></code> toolbox, which uses existing
 tools and <em>hacked</em> a bit around them.  The <code class="docutils literal"><span class="pre">dbxml2rst</span></code> uses the pandoc
 converter and implements some XML-filters, where pandoc fails, e.g. cross
@@ -145,12 +173,12 @@ references in a multi-part DocBook document.</p>
 <p>The migration of DocBook-XML is a working process and a task which is mostly
 done by developers, not end users. This in mind, the <code class="docutils literal"><span class="pre">dbxml2rst</span></code> tools are not
 <em>ready to go</em> for every one.  The <code class="docutils literal"><span class="pre">dbxml2rst</span></code> toolbox is useful for DocBook
-to reST migration, it don&#8217;t attempt to be a <em>converter</em> for a daily usage.</p>
+to reST migration, it don’t attempt to be a <em>converter</em> for a daily usage.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016 Markus Heiser</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2017 Markus Heiser</td>
 </tr>
 <tr class="field-even field"><th class="field-name">e-mail:</th><td class="field-body"><em>markus.heiser</em><em>&#64;</em><em>darmarIT.de</em></td>
 </tr>
@@ -189,12 +217,15 @@ to reST migration, it don&#8217;t attempt to be a <em>converter</em> for a daily
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="install.html" class="btn btn-neutral float-right" title="Install dbxml2rst and Pandoc" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Install dbxml2rst and Pandoc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -204,7 +235,7 @@ to reST migration, it don&#8217;t attempt to be a <em>converter</em> for a daily
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -229,7 +260,8 @@ to reST migration, it don&#8217;t attempt to be a <em>converter</em> for a daily
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

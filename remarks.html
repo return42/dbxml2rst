@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="index.html"/>
         <link rel="next" title="dbxml2rst package" href="dbxml2rst/dbxml2rst.html"/>
         <link rel="prev" title="Install dbxml2rst and Pandoc" href="install.html"/> 
@@ -43,6 +48,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -83,7 +89,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Remarks on Pandoc &amp; DocBook</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#remarks-on-pandoc">remarks on pandoc</a></li>
@@ -105,8 +114,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dbxml2rst</a>
+        
       </nav>
 
 
@@ -115,23 +126,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Remarks on Pandoc &amp; DocBook</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Remarks on Pandoc &amp; DocBook</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/remarks.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/remarks.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -146,7 +174,7 @@ implement there own (less XML) parsers and they always implement only a subset
 of the DocBook markup.</p>
 <p>The coverage of the pandoc DocBook reader is the most advanced, but it is merely
 a subset of the DocBook markup.  If the pandoc reader does not implement a
-markup, it will not be in the AST. This is, why it can&#8217;t be handled in a pandoc
+markup, it will not be in the AST. This is, why it can’t be handled in a pandoc
 filter. The coverage of the pandoc DocBook reader is documented in the sources:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jgm/pandoc/blob/master/src/Text/Pandoc/Readers/DocBook.hs#L23">https://github.com/jgm/pandoc/blob/master/src/Text/Pandoc/Readers/DocBook.hs#L23</a></li>
@@ -176,15 +204,18 @@ dbxml2rst library comes into account).</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dbxml2rst/dbxml2rst.html" class="btn btn-neutral float-right" title="dbxml2rst package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dbxml2rst/dbxml2rst.html" class="btn btn-neutral float-right" title="dbxml2rst package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Install dbxml2rst and Pandoc" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral" title="Install dbxml2rst and Pandoc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -193,7 +224,7 @@ dbxml2rst library comes into account).</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -218,7 +249,8 @@ dbxml2rst library comes into account).</p>
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

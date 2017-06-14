@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
         <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
         <link rel="next" title="dbxml2rst.pandoc module" href="dbxml2rst.pandoc.html"/>
@@ -44,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +90,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
 </ul>
@@ -111,8 +120,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dbxml2rst</a>
+        
       </nav>
 
 
@@ -121,25 +132,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
-      
-    <li>dbxml2rst.nodes module</li>
+        
+      <li>dbxml2rst.nodes module</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/dbxml2rst/dbxml2rst.nodes.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/dbxml2rst/dbxml2rst.nodes.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -154,7 +182,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2017  Markus Heiser</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
 </tr>
@@ -166,12 +194,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Appendix.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘chapter’</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Appendix.tag">
-<code class="descname">tag</code><em class="property"> = 'appendix'</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘appendix’</em><a class="headerlink" href="#dbxml2rst.nodes.Appendix.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -202,7 +230,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Authorgroup.tag">
-<code class="descname">tag</code><em class="property"> = 'authorgroup'</em><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘authorgroup’</em><a class="headerlink" href="#dbxml2rst.nodes.Authorgroup.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -228,12 +256,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Biblioentry.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Biblioentry.tag">
-<code class="descname">tag</code><em class="property"> = 'biblioentry'</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘biblioentry’</em><a class="headerlink" href="#dbxml2rst.nodes.Biblioentry.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -244,12 +272,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Bibliography.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘chapter’</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Bibliography.tag">
-<code class="descname">tag</code><em class="property"> = 'bibliography'</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘bibliography’</em><a class="headerlink" href="#dbxml2rst.nodes.Bibliography.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -260,12 +288,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Bookinfo.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘part’</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Bookinfo.tag">
-<code class="descname">tag</code><em class="property"> = 'bookinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘bookinfo’</em><a class="headerlink" href="#dbxml2rst.nodes.Bookinfo.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -281,12 +309,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Chapter.rstTitleMarkup">
-<code class="descname">rstTitleMarkup</code><em class="property"> = '*'</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTitleMarkup</code><em class="property"> = ‘*’</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Chapter.tag">
-<code class="descname">tag</code><em class="property"> = 'chapter'</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘chapter’</em><a class="headerlink" href="#dbxml2rst.nodes.Chapter.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -307,7 +335,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Code.tag">
-<code class="descname">tag</code><em class="property"> = 'code'</em><a class="headerlink" href="#dbxml2rst.nodes.Code.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘code’</em><a class="headerlink" href="#dbxml2rst.nodes.Code.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -318,7 +346,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Code" title="dbxml2rst.nodes.Code"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Code</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Computeroutput.tag">
-<code class="descname">tag</code><em class="property"> = 'computeroutput'</em><a class="headerlink" href="#dbxml2rst.nodes.Computeroutput.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘computeroutput’</em><a class="headerlink" href="#dbxml2rst.nodes.Computeroutput.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -339,7 +367,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Constant.tag">
-<code class="descname">tag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Constant.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Constant.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -370,7 +398,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Copyright.tag">
-<code class="descname">tag</code><em class="property"> = 'copyright'</em><a class="headerlink" href="#dbxml2rst.nodes.Copyright.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘copyright’</em><a class="headerlink" href="#dbxml2rst.nodes.Copyright.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -391,7 +419,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Entrytbl.tag">
-<code class="descname">tag</code><em class="property"> = 'entrytbl'</em><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘entrytbl’</em><a class="headerlink" href="#dbxml2rst.nodes.Entrytbl.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -422,17 +450,17 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Figure.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Figure.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '\n.. figure::  %(glob)s\n    :alt:    %(alt)s\n    :align:  %(align)s\n\n%(title)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘\n.. figure::  %(glob)s\n    :alt:    %(alt)s\n    :align:  %(align)s\n\n%(title)s\n’</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Figure.tag">
-<code class="descname">tag</code><em class="property"> = 'figure'</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘figure’</em><a class="headerlink" href="#dbxml2rst.nodes.Figure.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -443,12 +471,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Filename.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Filename.tag">
-<code class="descname">tag</code><em class="property"> = 'filename'</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘filename’</em><a class="headerlink" href="#dbxml2rst.nodes.Filename.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -474,7 +502,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Funcprototype.tag">
-<code class="descname">tag</code><em class="property"> = 'funcprototype'</em><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘funcprototype’</em><a class="headerlink" href="#dbxml2rst.nodes.Funcprototype.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -485,7 +513,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Programlisting" title="dbxml2rst.nodes.Programlisting"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Programlisting</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Funcsynopsisinfo.tag">
-<code class="descname">tag</code><em class="property"> = 'funcsynopsisinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Funcsynopsisinfo.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘funcsynopsisinfo’</em><a class="headerlink" href="#dbxml2rst.nodes.Funcsynopsisinfo.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -506,7 +534,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Function.tag">
-<code class="descname">tag</code><em class="property"> = 'function'</em><a class="headerlink" href="#dbxml2rst.nodes.Function.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘function’</em><a class="headerlink" href="#dbxml2rst.nodes.Function.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -517,12 +545,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Informalexample.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘para’</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Informalexample.tag">
-<code class="descname">tag</code><em class="property"> = 'informalexample'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘informalexample’</em><a class="headerlink" href="#dbxml2rst.nodes.Informalexample.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -533,7 +561,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Figure" title="dbxml2rst.nodes.Figure"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Figure</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Informalfigure.tag">
-<code class="descname">tag</code><em class="property"> = 'informalfigure'</em><a class="headerlink" href="#dbxml2rst.nodes.Informalfigure.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘informalfigure’</em><a class="headerlink" href="#dbxml2rst.nodes.Informalfigure.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -564,7 +592,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Informaltable.tag">
-<code class="descname">tag</code><em class="property"> = 'informaltable'</em><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘informaltable’</em><a class="headerlink" href="#dbxml2rst.nodes.Informaltable.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -575,12 +603,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Legalnotice.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Legalnotice.tag">
-<code class="descname">tag</code><em class="property"> = 'legalnotice'</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘legalnotice’</em><a class="headerlink" href="#dbxml2rst.nodes.Legalnotice.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -591,7 +619,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LinkTag" title="dbxml2rst.nodes.LinkTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LinkTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Link.tag">
-<code class="descname">tag</code><em class="property"> = 'link'</em><a class="headerlink" href="#dbxml2rst.nodes.Link.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘link’</em><a class="headerlink" href="#dbxml2rst.nodes.Link.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -612,7 +640,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.LinkTag.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = ':ref:`%(text)s &lt;%(linkend)s&gt;`'</em><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘:ref:`%(text)s &lt;%(linkend)s&gt;`’</em><a class="headerlink" href="#dbxml2rst.nodes.LinkTag.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -643,7 +671,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.LiteralBlock.language">
-<code class="descname">language</code><em class="property"> = 'guess'</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.language" title="Permalink to this definition">¶</a></dt>
+<code class="descname">language</code><em class="property"> = ‘guess’</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.language" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -653,12 +681,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.LiteralBlock.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.LiteralBlock.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '\n::\n\n%(literal)s\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘\n::\n\n%(literal)s\n\n’</em><a class="headerlink" href="#dbxml2rst.nodes.LiteralBlock.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -674,7 +702,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LiteralBlock" title="dbxml2rst.nodes.LiteralBlock"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LiteralBlock</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Literallayout.tag">
-<code class="descname">tag</code><em class="property"> = 'literallayout'</em><a class="headerlink" href="#dbxml2rst.nodes.Literallayout.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘literallayout’</em><a class="headerlink" href="#dbxml2rst.nodes.Literallayout.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -685,7 +713,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.XMLTag" title="dbxml2rst.nodes.XMLTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.XMLTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Mediaobject.align">
-<code class="descname">align</code><em class="property"> = 'center'</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.align" title="Permalink to this definition">¶</a></dt>
+<code class="descname">align</code><em class="property"> = ‘center’</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.align" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -695,7 +723,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Mediaobject.tag">
-<code class="descname">tag</code><em class="property"> = 'mediaobject'</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘mediaobject’</em><a class="headerlink" href="#dbxml2rst.nodes.Mediaobject.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -706,7 +734,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Para.tag">
-<code class="descname">tag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Para.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘para’</em><a class="headerlink" href="#dbxml2rst.nodes.Para.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -727,12 +755,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Part.rstTitleMarkup">
-<code class="descname">rstTitleMarkup</code><em class="property"> = '#'</em><a class="headerlink" href="#dbxml2rst.nodes.Part.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTitleMarkup</code><em class="property"> = ‘#’</em><a class="headerlink" href="#dbxml2rst.nodes.Part.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Part.tag">
-<code class="descname">tag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Part.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘part’</em><a class="headerlink" href="#dbxml2rst.nodes.Part.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -743,12 +771,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Chapter" title="dbxml2rst.nodes.Chapter"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Chapter</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Preface.rstTitleMarkup">
-<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTitleMarkup</code><em class="property"> = ‘=’</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Preface.tag">
-<code class="descname">tag</code><em class="property"> = 'preface'</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘preface’</em><a class="headerlink" href="#dbxml2rst.nodes.Preface.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -764,17 +792,17 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Programlisting.language">
-<code class="descname">language</code><em class="property"> = 'c'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.language" title="Permalink to this definition">¶</a></dt>
+<code class="descname">language</code><em class="property"> = ‘c’</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.language" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Programlisting.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '.. code-block:: %(language)s\n\n%(literal)s\n\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘.. code-block:: %(language)s\n\n%(literal)s\n\n\n’</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Programlisting.tag">
-<code class="descname">tag</code><em class="property"> = 'programlisting'</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘programlisting’</em><a class="headerlink" href="#dbxml2rst.nodes.Programlisting.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -785,12 +813,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Property.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Property.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Property.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Property.tag">
-<code class="descname">tag</code><em class="property"> = 'property'</em><a class="headerlink" href="#dbxml2rst.nodes.Property.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘property’</em><a class="headerlink" href="#dbxml2rst.nodes.Property.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -831,17 +859,17 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.ReSTInclude.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.ReSTInclude.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '\n.. toctree::\n    :maxdepth: 1\n\n%(entries)s\n\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘\n.. toctree::\n    :maxdepth: 1\n\n%(entries)s\n\n\n’</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.ReSTInclude.tag">
-<code class="descname">tag</code><em class="property"> = 'rstInclude'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘rstInclude’</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTInclude.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -867,12 +895,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.ReSTTemplate.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '\n.. kernel-doc:: %(fname)s\n%(options)s\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘\n.. kernel-doc:: %(fname)s\n%(options)s\n\n’</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.ReSTTemplate.tag">
-<code class="descname">tag</code><em class="property"> = 'rstTemplate'</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘rstTemplate’</em><a class="headerlink" href="#dbxml2rst.nodes.ReSTTemplate.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -898,7 +926,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refentry.tag">
-<code class="descname">tag</code><em class="property"> = 'refentry'</em><a class="headerlink" href="#dbxml2rst.nodes.Refentry.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refentry’</em><a class="headerlink" href="#dbxml2rst.nodes.Refentry.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -914,7 +942,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refentryinfo.tag">
-<code class="descname">tag</code><em class="property"> = 'refentryinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Refentryinfo.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refentryinfo’</em><a class="headerlink" href="#dbxml2rst.nodes.Refentryinfo.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -925,12 +953,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refnamediv.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refnamediv.tag">
-<code class="descname">tag</code><em class="property"> = 'refnamediv'</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refnamediv’</em><a class="headerlink" href="#dbxml2rst.nodes.Refnamediv.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -941,12 +969,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refpurpose.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘para’</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refpurpose.tag">
-<code class="descname">tag</code><em class="property"> = 'refpurpose'</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refpurpose’</em><a class="headerlink" href="#dbxml2rst.nodes.Refpurpose.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -957,7 +985,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect1" title="dbxml2rst.nodes.Sect1"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect1</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsect1.tag">
-<code class="descname">tag</code><em class="property"> = 'refsect1'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect1.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refsect1’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect1.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -968,7 +996,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect2" title="dbxml2rst.nodes.Sect2"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect2</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsect2.tag">
-<code class="descname">tag</code><em class="property"> = 'refsect2'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect2.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refsect2’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect2.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -979,7 +1007,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Sect3" title="dbxml2rst.nodes.Sect3"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Sect3</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsect3.tag">
-<code class="descname">tag</code><em class="property"> = 'refsect3'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect3.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refsect3’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsect3.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -990,12 +1018,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Section" title="dbxml2rst.nodes.Section"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Section</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsection.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsection.tag">
-<code class="descname">tag</code><em class="property"> = 'refsection'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refsection’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsection.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1011,7 +1039,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Refsynopsisdiv.tag">
-<code class="descname">tag</code><em class="property"> = 'refsynopsisdiv'</em><a class="headerlink" href="#dbxml2rst.nodes.Refsynopsisdiv.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘refsynopsisdiv’</em><a class="headerlink" href="#dbxml2rst.nodes.Refsynopsisdiv.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1042,12 +1070,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Revision.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Revision.tag">
-<code class="descname">tag</code><em class="property"> = 'revision'</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘revision’</em><a class="headerlink" href="#dbxml2rst.nodes.Revision.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1058,12 +1086,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Revremark.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'para'</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘para’</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Revremark.tag">
-<code class="descname">tag</code><em class="property"> = 'revremark'</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘revremark’</em><a class="headerlink" href="#dbxml2rst.nodes.Revremark.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1074,7 +1102,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LiteralBlock" title="dbxml2rst.nodes.LiteralBlock"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LiteralBlock</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Screen.tag">
-<code class="descname">tag</code><em class="property"> = 'screen'</em><a class="headerlink" href="#dbxml2rst.nodes.Screen.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘screen’</em><a class="headerlink" href="#dbxml2rst.nodes.Screen.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1085,12 +1113,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect1.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect1.tag">
-<code class="descname">tag</code><em class="property"> = 'sect1'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘sect1’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect1.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1101,12 +1129,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect2.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect2.tag">
-<code class="descname">tag</code><em class="property"> = 'sect2'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘sect2’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect2.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1117,12 +1145,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect3.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Sect3.tag">
-<code class="descname">tag</code><em class="property"> = 'sect3'</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘sect3’</em><a class="headerlink" href="#dbxml2rst.nodes.Sect3.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1143,12 +1171,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Section.rstTitleMarkup">
-<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.Section.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTitleMarkup</code><em class="property"> = ‘=’</em><a class="headerlink" href="#dbxml2rst.nodes.Section.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Section.tag">
-<code class="descname">tag</code><em class="property"> = 'section'</em><a class="headerlink" href="#dbxml2rst.nodes.Section.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘section’</em><a class="headerlink" href="#dbxml2rst.nodes.Section.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1159,12 +1187,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.StructureTag" title="dbxml2rst.nodes.StructureTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.StructureTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Setinfo.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'part'</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘part’</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Setinfo.tag">
-<code class="descname">tag</code><em class="property"> = 'setinfo'</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘setinfo’</em><a class="headerlink" href="#dbxml2rst.nodes.Setinfo.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1175,12 +1203,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Structfield.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Structfield.tag">
-<code class="descname">tag</code><em class="property"> = 'structfield'</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘structfield’</em><a class="headerlink" href="#dbxml2rst.nodes.Structfield.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1201,7 +1229,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Structname.tag">
-<code class="descname">tag</code><em class="property"> = 'structname'</em><a class="headerlink" href="#dbxml2rst.nodes.Structname.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘structname’</em><a class="headerlink" href="#dbxml2rst.nodes.Structname.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1242,7 +1270,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.StructureTag.rstPreMarkup">
-<code class="descname">rstPreMarkup</code><em class="property"> = '\n.. _%(ID)s:\n'</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstPreMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstPreMarkup</code><em class="property"> = ‘\n.. _%(ID)s:\n’</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstPreMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
@@ -1252,7 +1280,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.StructureTag.rstTitleMarkup">
-<code class="descname">rstTitleMarkup</code><em class="property"> = '='</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTitleMarkup</code><em class="property"> = ‘=’</em><a class="headerlink" href="#dbxml2rst.nodes.StructureTag.rstTitleMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1288,12 +1316,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Subtitle.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '\n**%(title)s**\n\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘\n**%(title)s**\n\n’</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Subtitle.tag">
-<code class="descname">tag</code><em class="property"> = 'subtitle'</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘subtitle’</em><a class="headerlink" href="#dbxml2rst.nodes.Subtitle.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1304,7 +1332,7 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Programlisting" title="dbxml2rst.nodes.Programlisting"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Programlisting</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Synopsis.tag">
-<code class="descname">tag</code><em class="property"> = 'synopsis'</em><a class="headerlink" href="#dbxml2rst.nodes.Synopsis.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘synopsis’</em><a class="headerlink" href="#dbxml2rst.nodes.Synopsis.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1350,32 +1378,32 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = '    '</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ‘    ‘</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.rstPostText">
-<code class="descname">rstPostText</code><em class="property"> = '\n%(tableEndMark)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPostText" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstPostText</code><em class="property"> = ‘\n%(tableEndMark)s\n’</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPostText" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.rstPreText">
-<code class="descname">rstPreText</code><em class="property"> = '\n.. table::%(title)s\n\n%(tableStartMark)s\n'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPreText" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstPreText</code><em class="property"> = ‘\n.. table::%(title)s\n\n%(tableStartMark)s\n’</em><a class="headerlink" href="#dbxml2rst.nodes.Table.rstPreText" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.tableEndMark">
-<code class="descname">tableEndMark</code><em class="property"> = '-- table end markup --'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableEndMark" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tableEndMark</code><em class="property"> = ‘– table end markup –’</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableEndMark" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.tableStartMark">
-<code class="descname">tableStartMark</code><em class="property"> = '-- table start markup --'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableStartMark" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tableStartMark</code><em class="property"> = ‘– table start markup –’</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tableStartMark" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Table.tag">
-<code class="descname">tag</code><em class="property"> = 'table'</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘table’</em><a class="headerlink" href="#dbxml2rst.nodes.Table.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1406,7 +1434,7 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Tgroup.tag">
-<code class="descname">tag</code><em class="property"> = 'tgroup'</em><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘tgroup’</em><a class="headerlink" href="#dbxml2rst.nodes.Tgroup.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1417,12 +1445,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Token.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Token.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Token.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Token.tag">
-<code class="descname">tag</code><em class="property"> = 'token'</em><a class="headerlink" href="#dbxml2rst.nodes.Token.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘token’</em><a class="headerlink" href="#dbxml2rst.nodes.Token.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1438,12 +1466,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Trademark.tag">
-<code class="descname">tag</code><em class="property"> = 'trademark'</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘trademark’</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Trademark.trademark">
-<code class="descname">trademark</code><em class="property"> = '®'</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.trademark" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trademark</code><em class="property"> = ‘®’</em><a class="headerlink" href="#dbxml2rst.nodes.Trademark.trademark" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1464,12 +1492,12 @@
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Ulink.rstMarkup">
-<code class="descname">rstMarkup</code><em class="property"> = '`%(text)s &lt;%(linkend)s&gt;`__'</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.rstMarkup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstMarkup</code><em class="property"> = ‘`%(text)s &lt;%(linkend)s&gt;`__’</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.rstMarkup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Ulink.tag">
-<code class="descname">tag</code><em class="property"> = 'ulink'</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘ulink’</em><a class="headerlink" href="#dbxml2rst.nodes.Ulink.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1480,12 +1508,12 @@
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.Constant" title="dbxml2rst.nodes.Constant"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.Constant</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Varname.replaceTag">
-<code class="descname">replaceTag</code><em class="property"> = 'constant'</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.replaceTag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replaceTag</code><em class="property"> = ‘constant’</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.replaceTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Varname.tag">
-<code class="descname">tag</code><em class="property"> = 'varname'</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘varname’</em><a class="headerlink" href="#dbxml2rst.nodes.Varname.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1537,7 +1565,7 @@
 
 <dl class="classmethod">
 <dt id="dbxml2rst.nodes.XMLTag.getFormatedTitle">
-<em class="property">classmethod </em><code class="descname">getFormatedTitle</code><span class="sig-paren">(</span><em>node</em>, <em>from_tag='title'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getFormatedTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getFormatedTitle" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">getFormatedTitle</code><span class="sig-paren">(</span><em>node</em>, <em>from_tag=’title’</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.getFormatedTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.getFormatedTitle" title="Permalink to this definition">¶</a></dt>
 <dd><p>title as one line, prefixed with py:attribute:<cite>rstBlock</cite></p>
 </dd></dl>
 
@@ -1613,22 +1641,22 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTag.rstAnchor">
-<code class="descname">rstAnchor</code><em class="property"> = '\n.. _%(ID)s:\n'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstAnchor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstAnchor</code><em class="property"> = ‘\n.. _%(ID)s:\n’</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstAnchor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTag.rstBlock">
-<code class="descname">rstBlock</code><em class="property"> = ''</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstBlock" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstBlock</code><em class="property"> = ”</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstBlock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTag.rstInclude_tag">
-<code class="descname">rstInclude_tag</code><em class="property"> = 'rstInclude'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInclude_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstInclude_tag</code><em class="property"> = ‘rstInclude’</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInclude_tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTag.rstInjection_sig">
-<code class="descname">rstInjection_sig</code><em class="property"> = '!ri!'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInjection_sig" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstInjection_sig</code><em class="property"> = ‘!ri!’</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstInjection_sig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1638,7 +1666,7 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTag.rstTemplate_tag">
-<code class="descname">rstTemplate_tag</code><em class="property"> = 'rstTemplate'</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstTemplate_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rstTemplate_tag</code><em class="property"> = ‘rstTemplate’</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.rstTemplate_tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1648,13 +1676,13 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 
 <dl class="method">
 <dt id="dbxml2rst.nodes.XMLTag.walk">
-<code class="descname">walk</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walk" title="Permalink to this definition">¶</a></dt>
+<code class="descname">walk</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=”</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Walks through the node-tree and applies matching filters on each node.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dbxml2rst.nodes.XMLTag.walkChilds">
-<code class="descname">walkChilds</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walkChilds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walkChilds" title="Permalink to this definition">¶</a></dt>
+<code class="descname">walkChilds</code><span class="sig-paren">(</span><em>node</em>, <em>rstPrefix=”</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTag.walkChilds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTag.walkChilds" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1665,18 +1693,18 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">type</span></code></p>
 <dl class="classmethod">
 <dt id="dbxml2rst.nodes.XMLTagType.getClassByTag">
-<em class="property">classmethod </em><code class="descname">getClassByTag</code><span class="sig-paren">(</span><em>mcs</em>, <em>tagName</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getClassByTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getClassByTag" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">getClassByTag</code><span class="sig-paren">(</span><em>tagName</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getClassByTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getClassByTag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="dbxml2rst.nodes.XMLTagType.getTagInstance">
-<em class="property">classmethod </em><code class="descname">getTagInstance</code><span class="sig-paren">(</span><em>mcs</em>, <em>node</em>, <em>parseData</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getTagInstance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getTagInstance" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">getTagInstance</code><span class="sig-paren">(</span><em>node</em>, <em>parseData</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/nodes.html#XMLTagType.getTagInstance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.getTagInstance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a XMLTag instance which fits to the tag or <code class="docutils literal"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.XMLTagType.typeList">
-<code class="descname">typeList</code><em class="property"> = {'structfield': &lt;class 'dbxml2rst.nodes.Structfield'&gt;, 'token': &lt;class 'dbxml2rst.nodes.Token'&gt;, 'constant': &lt;class 'dbxml2rst.nodes.Constant'&gt;, 'preface': &lt;class 'dbxml2rst.nodes.Preface'&gt;, 'setinfo': &lt;class 'dbxml2rst.nodes.Setinfo'&gt;, 'funcprototype': &lt;class 'dbxml2rst.nodes.Funcprototype'&gt;, 'trademark': &lt;class 'dbxml2rst.nodes.Trademark'&gt;, 'entrytbl': &lt;class 'dbxml2rst.nodes.Entrytbl'&gt;, 'synopsis': &lt;class 'dbxml2rst.nodes.Synopsis'&gt;, 'table': &lt;class 'dbxml2rst.nodes.Table'&gt;, 'varname': &lt;class 'dbxml2rst.nodes.Varname'&gt;, 'part': &lt;class 'dbxml2rst.nodes.Part'&gt;, 'informalfigure': &lt;class 'dbxml2rst.nodes.Informalfigure'&gt;, 'informalexample': &lt;class 'dbxml2rst.nodes.Informalexample'&gt;, 'revremark': &lt;class 'dbxml2rst.nodes.Revremark'&gt;, 'bibliography': &lt;class 'dbxml2rst.nodes.Bibliography'&gt;, 'programlisting': &lt;class 'dbxml2rst.nodes.Programlisting'&gt;, 'screen': &lt;class 'dbxml2rst.nodes.Screen'&gt;, 'funcsynopsisinfo': &lt;class 'dbxml2rst.nodes.Funcsynopsisinfo'&gt;, 'rstTemplate': &lt;class 'dbxml2rst.nodes.ReSTTemplate'&gt;, 'refsect2': &lt;class 'dbxml2rst.nodes.Refsect2'&gt;, 'mediaobject': &lt;class 'dbxml2rst.nodes.Mediaobject'&gt;, 'copyright': &lt;class 'dbxml2rst.nodes.Copyright'&gt;, 'authorgroup': &lt;class 'dbxml2rst.nodes.Authorgroup'&gt;, 'refentry': &lt;class 'dbxml2rst.nodes.Refentry'&gt;, 'revision': &lt;class 'dbxml2rst.nodes.Revision'&gt;, 'refsynopsisdiv': &lt;class 'dbxml2rst.nodes.Refsynopsisdiv'&gt;, 'refsect3': &lt;class 'dbxml2rst.nodes.Refsect3'&gt;, 'rstInclude': &lt;class 'dbxml2rst.nodes.ReSTInclude'&gt;, 'function': &lt;class 'dbxml2rst.nodes.Function'&gt;, 'refnamediv': &lt;class 'dbxml2rst.nodes.Refnamediv'&gt;, 'refsection': &lt;class 'dbxml2rst.nodes.Refsection'&gt;, 'structname': &lt;class 'dbxml2rst.nodes.Structname'&gt;, 'bookinfo': &lt;class 'dbxml2rst.nodes.Bookinfo'&gt;, 'sect3': &lt;class 'dbxml2rst.nodes.Sect3'&gt;, 'subtitle': &lt;class 'dbxml2rst.nodes.Subtitle'&gt;, 'tgroup': &lt;class 'dbxml2rst.nodes.Tgroup'&gt;, 'computeroutput': &lt;class 'dbxml2rst.nodes.Computeroutput'&gt;, 'para': &lt;class 'dbxml2rst.nodes.Para'&gt;, 'property': &lt;class 'dbxml2rst.nodes.Property'&gt;, 'refpurpose': &lt;class 'dbxml2rst.nodes.Refpurpose'&gt;, 'informaltable': &lt;class 'dbxml2rst.nodes.Informaltable'&gt;, 'appendix': &lt;class 'dbxml2rst.nodes.Appendix'&gt;, 'ulink': &lt;class 'dbxml2rst.nodes.Ulink'&gt;, 'code': &lt;class 'dbxml2rst.nodes.Code'&gt;, 'refentryinfo': &lt;class 'dbxml2rst.nodes.Refentryinfo'&gt;, 'biblioentry': &lt;class 'dbxml2rst.nodes.Biblioentry'&gt;, 'legalnotice': &lt;class 'dbxml2rst.nodes.Legalnotice'&gt;, 'sect1': &lt;class 'dbxml2rst.nodes.Sect1'&gt;, 'link': &lt;class 'dbxml2rst.nodes.Link'&gt;, 'xref': &lt;class 'dbxml2rst.nodes.Xref'&gt;, 'figure': &lt;class 'dbxml2rst.nodes.Figure'&gt;, 'sect2': &lt;class 'dbxml2rst.nodes.Sect2'&gt;, 'filename': &lt;class 'dbxml2rst.nodes.Filename'&gt;, 'chapter': &lt;class 'dbxml2rst.nodes.Chapter'&gt;, 'section': &lt;class 'dbxml2rst.nodes.Section'&gt;, 'refsect1': &lt;class 'dbxml2rst.nodes.Refsect1'&gt;, 'literallayout': &lt;class 'dbxml2rst.nodes.Literallayout'&gt;}</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.typeList" title="Permalink to this definition">¶</a></dt>
+<code class="descname">typeList</code><em class="property"> = {‘sect1’: &lt;class ‘dbxml2rst.nodes.Sect1’&gt;, ‘computeroutput’: &lt;class ‘dbxml2rst.nodes.Computeroutput’&gt;, ‘filename’: &lt;class ‘dbxml2rst.nodes.Filename’&gt;, ‘refsect3’: &lt;class ‘dbxml2rst.nodes.Refsect3’&gt;, ‘part’: &lt;class ‘dbxml2rst.nodes.Part’&gt;, ‘biblioentry’: &lt;class ‘dbxml2rst.nodes.Biblioentry’&gt;, ‘revision’: &lt;class ‘dbxml2rst.nodes.Revision’&gt;, ‘refsect1’: &lt;class ‘dbxml2rst.nodes.Refsect1’&gt;, ‘copyright’: &lt;class ‘dbxml2rst.nodes.Copyright’&gt;, ‘code’: &lt;class ‘dbxml2rst.nodes.Code’&gt;, ‘ulink’: &lt;class ‘dbxml2rst.nodes.Ulink’&gt;, ‘programlisting’: &lt;class ‘dbxml2rst.nodes.Programlisting’&gt;, ‘appendix’: &lt;class ‘dbxml2rst.nodes.Appendix’&gt;, ‘entrytbl’: &lt;class ‘dbxml2rst.nodes.Entrytbl’&gt;, ‘refnamediv’: &lt;class ‘dbxml2rst.nodes.Refnamediv’&gt;, ‘token’: &lt;class ‘dbxml2rst.nodes.Token’&gt;, ‘legalnotice’: &lt;class ‘dbxml2rst.nodes.Legalnotice’&gt;, ‘literallayout’: &lt;class ‘dbxml2rst.nodes.Literallayout’&gt;, ‘rstInclude’: &lt;class ‘dbxml2rst.nodes.ReSTInclude’&gt;, ‘link’: &lt;class ‘dbxml2rst.nodes.Link’&gt;, ‘xref’: &lt;class ‘dbxml2rst.nodes.Xref’&gt;, ‘refpurpose’: &lt;class ‘dbxml2rst.nodes.Refpurpose’&gt;, ‘refentryinfo’: &lt;class ‘dbxml2rst.nodes.Refentryinfo’&gt;, ‘informalexample’: &lt;class ‘dbxml2rst.nodes.Informalexample’&gt;, ‘subtitle’: &lt;class ‘dbxml2rst.nodes.Subtitle’&gt;, ‘informaltable’: &lt;class ‘dbxml2rst.nodes.Informaltable’&gt;, ‘rstTemplate’: &lt;class ‘dbxml2rst.nodes.ReSTTemplate’&gt;, ‘chapter’: &lt;class ‘dbxml2rst.nodes.Chapter’&gt;, ‘function’: &lt;class ‘dbxml2rst.nodes.Function’&gt;, ‘sect2’: &lt;class ‘dbxml2rst.nodes.Sect2’&gt;, ‘revremark’: &lt;class ‘dbxml2rst.nodes.Revremark’&gt;, ‘para’: &lt;class ‘dbxml2rst.nodes.Para’&gt;, ‘refsynopsisdiv’: &lt;class ‘dbxml2rst.nodes.Refsynopsisdiv’&gt;, ‘authorgroup’: &lt;class ‘dbxml2rst.nodes.Authorgroup’&gt;, ‘figure’: &lt;class ‘dbxml2rst.nodes.Figure’&gt;, ‘bookinfo’: &lt;class ‘dbxml2rst.nodes.Bookinfo’&gt;, ‘mediaobject’: &lt;class ‘dbxml2rst.nodes.Mediaobject’&gt;, ‘varname’: &lt;class ‘dbxml2rst.nodes.Varname’&gt;, ‘sect3’: &lt;class ‘dbxml2rst.nodes.Sect3’&gt;, ‘funcprototype’: &lt;class ‘dbxml2rst.nodes.Funcprototype’&gt;, ‘setinfo’: &lt;class ‘dbxml2rst.nodes.Setinfo’&gt;, ‘informalfigure’: &lt;class ‘dbxml2rst.nodes.Informalfigure’&gt;, ‘refentry’: &lt;class ‘dbxml2rst.nodes.Refentry’&gt;, ‘bibliography’: &lt;class ‘dbxml2rst.nodes.Bibliography’&gt;, ‘trademark’: &lt;class ‘dbxml2rst.nodes.Trademark’&gt;, ‘table’: &lt;class ‘dbxml2rst.nodes.Table’&gt;, ‘refsection’: &lt;class ‘dbxml2rst.nodes.Refsection’&gt;, ‘constant’: &lt;class ‘dbxml2rst.nodes.Constant’&gt;, ‘screen’: &lt;class ‘dbxml2rst.nodes.Screen’&gt;, ‘funcsynopsisinfo’: &lt;class ‘dbxml2rst.nodes.Funcsynopsisinfo’&gt;, ‘preface’: &lt;class ‘dbxml2rst.nodes.Preface’&gt;, ‘synopsis’: &lt;class ‘dbxml2rst.nodes.Synopsis’&gt;, ‘property’: &lt;class ‘dbxml2rst.nodes.Property’&gt;, ‘refsect2’: &lt;class ‘dbxml2rst.nodes.Refsect2’&gt;, ‘structfield’: &lt;class ‘dbxml2rst.nodes.Structfield’&gt;, ‘section’: &lt;class ‘dbxml2rst.nodes.Section’&gt;, ‘structname’: &lt;class ‘dbxml2rst.nodes.Structname’&gt;, ‘tgroup’: &lt;class ‘dbxml2rst.nodes.Tgroup’&gt;}</em><a class="headerlink" href="#dbxml2rst.nodes.XMLTagType.typeList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1692,7 +1720,7 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.nodes.LinkTag" title="dbxml2rst.nodes.LinkTag"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.nodes.LinkTag</span></code></a></p>
 <dl class="attribute">
 <dt id="dbxml2rst.nodes.Xref.tag">
-<code class="descname">tag</code><em class="property"> = 'xref'</em><a class="headerlink" href="#dbxml2rst.nodes.Xref.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code><em class="property"> = ‘xref’</em><a class="headerlink" href="#dbxml2rst.nodes.Xref.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1712,10 +1740,10 @@ this case, run <a class="reference internal" href="#dbxml2rst.nodes.subEntities"
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>folder</strong> (<em>str</em>) &#8211; Root-folder where conversion takes place.</li>
-<li><strong>inFile</strong> (<em>str</em>) &#8211; Preprocess XML file.</li>
-<li><strong>ext_entities</strong> (<em>EntityContainer or None</em>) &#8211; container with the external entities</li>
-<li><strong>int_entities</strong> (<em>EntityContainer or None</em>) &#8211; container with the internal entities</li>
+<li><strong>folder</strong> (<em>str</em>) – Root-folder where conversion takes place.</li>
+<li><strong>inFile</strong> (<em>str</em>) – Preprocess XML file.</li>
+<li><strong>ext_entities</strong> (<a class="reference internal" href="dbxml2rst.helper.html#dbxml2rst.helper.EntityContainer" title="dbxml2rst.helper.EntityContainer"><em>EntityContainer</em></a><em> or </em><em>None</em>) – container with the external entities</li>
+<li><strong>int_entities</strong> (<a class="reference internal" href="dbxml2rst.helper.html#dbxml2rst.helper.EntityContainer" title="dbxml2rst.helper.EntityContainer"><em>EntityContainer</em></a><em> or </em><em>None</em>) – container with the internal entities</li>
 </ul>
 </td>
 </tr>
@@ -1736,15 +1764,18 @@ XMLTag.rstInclude_tag</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dbxml2rst.pandoc.html" class="btn btn-neutral float-right" title="dbxml2rst.pandoc module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dbxml2rst.pandoc.html" class="btn btn-neutral float-right" title="dbxml2rst.pandoc module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dbxml2rst.hooks.html" class="btn btn-neutral" title="dbxml2rst.hooks module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dbxml2rst.hooks.html" class="btn btn-neutral" title="dbxml2rst.hooks module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1753,7 +1784,7 @@ XMLTag.rstInclude_tag</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -1778,7 +1809,8 @@ XMLTag.rstInclude_tag</p>
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

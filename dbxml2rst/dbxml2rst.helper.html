@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="../index.html"/>
         <link rel="up" title="dbxml2rst package" href="dbxml2rst.html"/>
         <link rel="next" title="dbxml2rst.hooks module" href="dbxml2rst.hooks.html"/>
@@ -44,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +90,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
 </ul>
@@ -111,8 +120,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dbxml2rst</a>
+        
       </nav>
 
 
@@ -121,25 +132,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="dbxml2rst.html">dbxml2rst package</a> &raquo;</li>
-      
-    <li>dbxml2rst.helper module</li>
+        
+      <li>dbxml2rst.helper module</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/dbxml2rst/dbxml2rst.helper.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/dbxml2rst/dbxml2rst.helper.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -154,7 +182,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2016  Markus Heiser</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Copyright (C) 2017  Markus Heiser</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">GPL V3.0, see LICENSE for details.</td>
 </tr>
@@ -186,7 +214,7 @@
                 <span class="nv">COMP_POINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$COMP_POINT</span><span class="s2">&quot;</span> <span class="se">\</span>
                 <span class="nv">_ARGCOMPLETE_COMP_WORDBREAKS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$COMP_WORDBREAKS</span><span class="s2">&quot;</span> <span class="se">\</span>
                 <span class="nv">_ARGCOMPLETE</span><span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-                <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> 8&gt;<span class="p">&amp;</span><span class="m">1</span> 9&gt;<span class="p">&amp;</span><span class="m">2</span> 1&gt;/dev/null<span class="k">)</span> <span class="o">)</span>
+                <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="m">8</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">9</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">1</span>&gt;/dev/null<span class="k">)</span> <span class="o">)</span>
         <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
                 <span class="nb">unset</span> COMPREPLY
         <span class="k">fi</span>
@@ -222,7 +250,7 @@
 <em class="property">class </em><code class="descclassname">dbxml2rst.helper.</code><code class="descname">PContainer</code><span class="sig-paren">(</span><em>fname</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dbxml2rst/helper.html#PContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dbxml2rst.helper.PContainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#dbxml2rst.helper.Container" title="dbxml2rst.helper.Container"><code class="xref py py-class docutils literal"><span class="pre">dbxml2rst.helper.Container</span></code></a></p>
 <p>Persistent container class.</p>
-<p>The persistence is a json dump in the file given by constructor&#8217;s argument
+<p>The persistence is a json dump in the file given by constructor’s argument
 <code class="docutils literal"><span class="pre">fname</span></code>. It serialize only properties (objects) which are covered by the
 <code class="xref py py-mod docutils literal"><span class="pre">json.dump</span></code>.</p>
 <dl class="method">
@@ -243,7 +271,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="dbxml2rst.helper.SimpleLog.LOG_FORMAT">
-<code class="descname">LOG_FORMAT</code><em class="property"> = '%(logclass)s: %(message)s\n'</em><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.LOG_FORMAT" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LOG_FORMAT</code><em class="property"> = ‘%(logclass)s: %(message)s\n’</em><a class="headerlink" href="#dbxml2rst.helper.SimpleLog.LOG_FORMAT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -278,15 +306,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dbxml2rst.hooks.html" class="btn btn-neutral float-right" title="dbxml2rst.hooks module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dbxml2rst.hooks.html" class="btn btn-neutral float-right" title="dbxml2rst.hooks module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dbxml2rst.html" class="btn btn-neutral" title="dbxml2rst package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dbxml2rst.html" class="btn btn-neutral" title="dbxml2rst package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -295,7 +326,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -320,7 +351,8 @@
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

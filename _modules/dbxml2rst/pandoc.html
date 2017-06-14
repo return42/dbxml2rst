@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -32,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="dbxml2rst 20160727 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -42,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -82,7 +88,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install dbxml2rst and Pandoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../remarks.html">Remarks on Pandoc &amp; DocBook</a></li>
 </ul>
@@ -100,8 +109,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">dbxml2rst</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dbxml2rst</a>
+        
       </nav>
 
 
@@ -114,19 +125,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Module code</a> &raquo;</li>
-      
-    <li>dbxml2rst.pandoc</li>
+        
+      <li>dbxml2rst.pandoc</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -137,13 +165,13 @@
 <span class="c1"># -*- coding: utf-8; mode: python -*-</span>
 <span class="c1"># pylint: disable=C0103,R0912,R0914,R0915</span>
 
-<span class="sd">u&quot;&quot;&quot;</span>
+<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    dbxml2rst.pandoc</span>
 <span class="sd">    ~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">    Pandoc stuff used by the dbxml2rst library</span>
 
-<span class="sd">    :copyright:  Copyright (C) 2016  Markus Heiser</span>
+<span class="sd">    :copyright:  Copyright (C) 2017  Markus Heiser</span>
 <span class="sd">    :license:    GPL V3.0, see LICENSE for details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -178,7 +206,7 @@
 <div class="viewcode-block" id="xml2json"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.xml2json">[docs]</a><span class="k">def</span> <span class="nf">xml2json</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="c1"># ==============================================================================</span>
 
-    <span class="sd">u&quot;&quot;&quot;convert xml file to json file with pandoc&quot;&quot;&quot;</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;convert xml file to json file with pandoc&quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">PANDOC_EXE</span><span class="p">:</span>
         <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;pandoc is not installed&quot;</span><span class="p">)</span>
@@ -217,7 +245,7 @@
 <div class="viewcode-block" id="jsonFilter"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.jsonFilter">[docs]</a><span class="k">def</span> <span class="nf">jsonFilter</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">*</span><span class="n">filters</span><span class="p">):</span>
 <span class="c1"># ==============================================================================</span>
 
-    <span class="sd">u&quot;&quot;&quot;apply ``*filters`` on a pandoc json file&quot;&quot;&quot;</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;apply ``*filters`` on a pandoc json file&quot;&quot;&quot;</span>
 
     <span class="k">with</span> <span class="n">src</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">inFile</span><span class="p">,</span> <span class="n">dst</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outFile</span><span class="p">:</span>
         <span class="n">toJSONFilters</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="o">*</span><span class="n">filters</span><span class="p">)</span></div>
@@ -227,7 +255,7 @@
 <div class="viewcode-block" id="json2rst"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.json2rst">[docs]</a><span class="k">def</span> <span class="nf">json2rst</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="c1"># ==============================================================================</span>
 
-    <span class="sd">u&quot;&quot;&quot;convert a json file with pandoc to reST markup&quot;&quot;&quot;</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;convert a json file with pandoc to reST markup&quot;&quot;&quot;</span>
 
     <span class="n">proc</span> <span class="o">=</span> <span class="n">PANDOC_EXE</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
         <span class="s2">&quot;--reference-links&quot;</span>
@@ -244,12 +272,12 @@
 <div class="viewcode-block" id="fixPandocRST"><a class="viewcode-back" href="../../dbxml2rst/dbxml2rst.pandoc.html#dbxml2rst.pandoc.fixPandocRST">[docs]</a><span class="k">def</span> <span class="nf">fixPandocRST</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">):</span>
 <span class="c1"># ==============================================================================</span>
 
-    <span class="sd">u&quot;&quot;&quot;Fix common reST markup bugs from the pandoc reST writer.  &quot;&quot;&quot;</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;Fix common reST markup bugs from the pandoc reST writer.  &quot;&quot;&quot;</span>
 
     <span class="c1"># fix malicious pandoc quoting</span>
     <span class="c1"># https://github.com/jgm/pandoc/blob/master/src/Text/Pandoc/Writers/RST.hs#L162</span>
     <span class="c1"># --&gt; &quot;&quot;&quot;escapeStringUsing (backslashEscapes &quot;`\\|*_&quot;)&quot;&quot;&quot;</span>
-    <span class="n">backslashEscapes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r&quot;</span><span class="se">\\</span><span class="s2">[`\|\||\*|_]&quot;</span><span class="p">)</span>
+    <span class="n">backslashEscapes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">[`\|\||\*|_]&quot;</span><span class="p">)</span>
 
     <span class="n">indent</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">with</span> <span class="n">src</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
@@ -257,7 +285,7 @@
         <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">helper</span><span class="o">.</span><span class="n">rstHEADER</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">src</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">u&quot;⋆&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;⋆&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
             <span class="n">striped</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">striped</span><span class="p">:</span>
                 <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -300,6 +328,9 @@
 </pre></div>
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -308,7 +339,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016 Markus Heiser.
+        &copy; Copyright 2017 Markus Heiser.
 
     </p>
   </div>
@@ -333,7 +364,8 @@
             VERSION:'20160727',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
